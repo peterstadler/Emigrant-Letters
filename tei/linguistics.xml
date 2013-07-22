@@ -19,24 +19,60 @@
       <body>
          <p>
             <interpGrp>
-               <interp></interp>
+               <desc>Alphabetical list of part-of-speech tags used in the Penn Treebank Project, cf.<ref target="http://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html"/></desc>
+               <interp n="1" xml:id="CC">Coordinating conjunction</interp>
+               <interp n="2" xml:id="CD">Cardinal number</interp>
+               <interp n="3" xml:id="DT">Determiner</interp>
+               <interp n="4" xml:id="EX">Existential there</interp>
+               <interp n="5" xml:id="FW">Foreign word</interp>
+               <interp n="6" xml:id="IN">Preposition or subordinating conjunction</interp>
+               <interp n="7" xml:id="JJ">Adjective</interp>
+               <interp n="8" xml:id="JJR">Adjective, comparative</interp>
+               <interp n="9" xml:id="JJS">Adjective, superlative</interp>
+               <interp n="10" xml:id="LS">List item marker</interp>
+               <interp n="11" xml:id="MD">Modal</interp>
+               <interp n="12" xml:id="NN">Noun, singular or mass</interp>
+               <interp n="13" xml:id="NNS">Noun, plural</interp>
+               <interp n="14" xml:id="NNP">Proper noun, singular</interp>
+               <interp n="15" xml:id="NNPS">Proper noun, plural</interp>
+               <interp n="16" xml:id="PDT">Predeterminer</interp>
+               <interp n="17" xml:id="POS">Possessive ending</interp>
+               <interp n="18" xml:id="PRP">Personal pronoun</interp>
+               <interp n="19" xml:id="PRP_">Possessive pronoun</interp><!-- PRP$ -->
+               <interp n="20" xml:id="RB">Adverb</interp>
+               <interp n="21" xml:id="RBR">Adverb, comparative</interp>
+               <interp n="22" xml:id="RBS">Adverb, superlative</interp>
+               <interp n="23" xml:id="RP">Particle</interp>
+               <interp n="24" xml:id="SYM">Symbol</interp>
+               <interp n="25" xml:id="TO">to</interp>
+               <interp n="26" xml:id="UH">Interjection</interp>
+               <interp n="27" xml:id="VB">Verb, base form</interp>
+               <interp n="28" xml:id="VBD">Verb, past tense</interp>
+               <interp n="29" xml:id="VBG">Verb, gerund or present participle</interp>
+               <interp n="30" xml:id="VBN">Verb, past participle</interp>
+               <interp n="31" xml:id="VBP">Verb, non-3rd person singular present</interp>
+               <interp n="32" xml:id="VBZ">Verb, 3rd person singular present</interp>
+               <interp n="33" xml:id="WDT">Wh-determiner</interp>
+               <interp n="34" xml:id="WP">Wh-pronoun</interp>
+               <interp n="35" xml:id="WP_">Possessive wh-pronoun</interp><!-- WP$ -->
+               <interp n="36" xml:id="WRB">Wh-adverb</interp>
             </interpGrp>
          </p>
          <p>
             <s><!-- I'm taking the day off tomorrow. -->
-               <phr type="NP"><w lemma="I" type="PRP">I</w></phr>
+               <phr type="NP"><w lemma="I" ana="#PRP">I</w></phr>
                <phr type="VP">
-                  <w lemma="'m" type="VBP">'m</w> 
+                  <w lemma="'m" ana="#VBP">'m</w> 
                   <phr type="VP">
-                     <w lemma="take" type="VBG">taking</w> 
+                     <w lemma="take" ana="#VBG">taking</w> 
                      <phr type="ADVP">
                         <phr type="NP">
-                           <w lemma="the" type="DT">the</w> <w lemma="day" type="NN">day</w>
+                           <w lemma="the" ana="#DT">the</w> <w lemma="day" ana="#NN">day</w>
                         </phr> 
-                        <w lemma="off" type="IN">off</w>
+                        <w lemma="off" ana="#IN">off</w>
                      </phr> 
                      <phr type="NP">
-                        <w lemma="tomorrow" type="NN">tomorrow</w>
+                        <w lemma="tomorrow" ana="#NN">tomorrow</w>
                      </phr>
                   </phr>
                </phr>
