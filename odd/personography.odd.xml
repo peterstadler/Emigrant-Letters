@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>ODD for emigrant letter collections</title>
+        <author>Anna Komprecht</author>
+        <author>Peter Stadler</author>
+      </titleStmt>
+      <publicationStmt>
+        <p>Freely available</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Born digital document</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <div>
+        <head>Introduction</head>
+        <p>Some text here</p>
+      </div>
+    </body>
+    <back>
+      <div>
+        <head>Formal Specification</head>
+        <schemaSpec ident="emigrantLettersPersonography" docLang="en" prefix="tei_" xml:lang="en" start="listPerson">
+          <moduleRef key="core" include="date hi name note p ref"/>
+          <moduleRef key="tei"/>
+          <moduleRef key="header" include="idno" />
+<!--          <moduleRef key="textstructure" include="" />-->
+          <moduleRef key="namesdates" include="addName birth country death education event faith forename listEvent listPerson occupation placeName persName person relationGrp relation residence settlement sex socecStatus surname" />
+<!--          <moduleRef key="linking"/>-->
+          
+          <macroSpec ident="id.person.pattern" mode="add">
+            <desc>Macro for specifying person IDs</desc>
+            <content>
+              <rng:data type="string">
+                <rng:param name="pattern">LOUGHPers_\d{4}</rng:param>
+              </rng:data>
+            </content>
+          </macroSpec>
+          
+          <macroSpec ident="id.place.pattern" mode="add">
+            <desc>Macro for specifying place IDs</desc>
+            <content>
+              <rng:data type="string">
+                <rng:param name="pattern">LOUGHPlace_\d{4}</rng:param>
+              </rng:data>
+            </content>
+          </macroSpec>
+          
+          <elementSpec ident="forename" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.personal" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.canonical" mode="delete"/>
+              <memberOf key="att.typed" mode="delete"/>
+            </classes>
+            <attList>
+              <attDef ident="type" mode="add" usage="req">
+                <valList type="closed" mode="add">
+                  <valItem ident="first"/>
+                  <valItem ident="middle"/>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="addName" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.personal" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.canonical" mode="delete"/>
+              <memberOf key="att.typed" mode="delete"/>
+            </classes>
+            <attList>
+              <attDef ident="type" mode="add" usage="mwa">
+                <valList type="closed" mode="add">
+                  <valItem ident="nick"/>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="surname" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.personal" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.canonical" mode="delete"/>
+            </classes>
+            <attList>
+              <attDef ident="type" mode="change" usage="req">
+                <valList type="closed" mode="change">
+                  <valItem ident="married"/>
+                  <valItem ident="maiden"/>
+                </valList>
+              </attDef>
+              <attDef ident="subtype" mode="change" usage="mwa">
+                <valList type="closed" mode="change">
+                  <valItem ident="altSpelling"/>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="education" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.canonical" mode="delete"/>
+            </classes>
+            <content>
+              <rng:empty/>
+            </content>
+            <attList>
+              <attDef ident="key" mode="add" usage="req">
+                <valList type="closed" mode="add">
+                  <valItem ident="MS">
+                    <desc>mechanically schooled</desc>
+                  </valItem>
+                  <valItem ident="GS">
+                    <desc>grammatically schooled</desc>
+                  </valItem>
+                  <valItem ident="unknown">
+                    <desc>unknown</desc>
+                  </valItem>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="occupation" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.canonical" mode="delete"/>
+            </classes>
+            <attList>
+              <attDef ident="key" mode="add" usage="req">
+                <valList type="closed" mode="add">
+                  <valItem ident="1">
+                    <desc>housewife</desc>
+                  </valItem>
+                  <valItem ident="2">
+                    <desc>manual</desc>
+                  </valItem>
+                  <valItem ident="3">
+                    <desc>semi-skilled</desc>
+                  </valItem>
+                  <valItem ident="4">
+                    <desc>skilled</desc>
+                  </valItem>
+                  <valItem ident="5">
+                    <desc>professional</desc>
+                  </valItem>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="event" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.canonical" mode="delete"/>
+              <memberOf key="att.typed" mode="delete"/>
+              <memberOf key="att.sortable" mode="delete"/>
+              <memberOf key="att.datable.w3c" mode="add"/>
+            </classes>
+            <attList>
+              <attDef ident="where" mode="delete"/>
+              <attDef ident="whereFrom" mode="add">
+                <datatype>
+                  <rng:ref name="id.place.pattern"/>
+                </datatype>
+              </attDef>
+              <attDef ident="whereTo" mode="add">
+                <datatype>
+                  <rng:ref name="id.place.pattern"/>
+                </datatype>
+              </attDef>
+              <attDef ident="type" mode="add">
+                <valList>
+                  <valItem ident="emigration">
+                  </valItem>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="socecStatus" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.canonical" mode="delete"/>
+            </classes>
+            <content>
+              <rng:empty/>
+            </content>
+            <attList>
+              <attDef ident="key" mode="add" usage="req">
+                <valList type="closed" mode="add">
+                  <valItem ident="LC">
+                    <desc>lower class</desc>
+                  </valItem>
+                  <valItem ident="MC">
+                    <desc>middle class</desc>
+                  </valItem>
+                  <valItem ident="UC">
+                    <desc>upper class</desc>
+                  </valItem>
+                  <valItem ident="unknown">
+                    <desc>unknown</desc>
+                  </valItem>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="faith" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/> 
+              <memberOf key="att.canonical" mode="delete"/>
+            </classes>
+            <content>
+              <rng:empty/>
+            </content>
+            <attList>
+              <attDef ident="key" mode="add" usage="req">
+                <valList type="closed" mode="add">
+                  <valItem ident="RC">
+                    <desc>roman catholic</desc>
+                  </valItem>
+                  <valItem ident="unknwon">
+                    <desc>unknown</desc>
+                  </valItem>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="sex" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/> 
+            </classes>
+            <content>
+              <rng:empty/>
+            </content>
+            <attList>
+              <attDef ident="value" mode="change" usage="req"/>
+            </attList>
+          </elementSpec>
+          
+          
+          <elementSpec ident="birth" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/> 
+              <memberOf key="att.canonical" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.datable.w3c" mode="add"/>
+            </classes>
+            <attList>
+              <attDef ident="from" mode="delete"/>
+              <attDef ident="to" mode="delete"/>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="death" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/> 
+              <memberOf key="att.canonical" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.datable.w3c" mode="add"/>
+            </classes>
+            <attList>
+              <attDef ident="from" mode="delete"/>
+              <attDef ident="to" mode="delete"/>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="person" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.sortable" mode="delete"/>
+            </classes>
+            <content>
+              <rng:ref name="persName"/>
+              <rng:ref name="birth"/>
+              <rng:ref name="death"/>
+              <rng:ref name="education"/>
+              <rng:oneOrMore>
+                <rng:ref name="occupation"/>
+              </rng:oneOrMore>
+              <rng:oneOrMore>
+                <rng:ref name="residence"/>
+              </rng:oneOrMore>
+              <rng:ref name="sex"/>
+              <rng:ref name="socecStatus"/>
+              <rng:ref name="faith"/>
+              <rng:ref name="listEvent"/>
+            </content>
+            <attList>
+              <attDef ident="role" mode="delete"/>
+              <attDef ident="sex" mode="delete"/>
+              <attDef ident="age" mode="delete"/>
+              <attDef ident="xml:id" mode="add" usage="req">
+                <datatype>
+                  <rng:ref name="id.person.pattern"/>
+                </datatype>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="listPerson" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.typed" mode="delete"/>
+              <memberOf key="att.declarable" mode="delete"/>
+              <memberOf key="att.sortable" mode="delete"/>
+            </classes>
+            <content>
+              <rng:oneOrMore>
+                <rng:ref name="person"/>
+              </rng:oneOrMore>
+              <rng:ref name="relationGrp"/>
+            </content>
+          </elementSpec>
+          
+          <elementSpec ident="relation" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/> 
+              <memberOf key="att.canonical" mode="delete"/>
+              <memberOf key="att.sortable" mode="delete"/>
+              <memberOf key="att.datable.w3c" mode="add"/>
+            </classes>
+            <attList>
+              <attDef ident="type" mode="delete"/>
+              <attDef ident="name" mode="change" usage="req">
+                <valList mode="add" type="closed">
+                  <valItem ident="spouse">
+                    <desc>mutual relation between two people</desc>
+                  </valItem>
+                  <valItem ident="childOf">
+                    <desc>directed relation between the active child and the passive parents</desc>
+                  </valItem>
+                </valList>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+          <elementSpec ident="residence" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+            <classes mode="change">
+              <memberOf key="att.global" mode="delete"/>
+              <memberOf key="att.editLike" mode="delete"/>
+              <memberOf key="att.dimensions" mode="delete"/>
+              <memberOf key="att.ranging" mode="delete"/>
+              <memberOf key="att.responsibility" mode="delete"/>
+              <memberOf key="att.datable" mode="delete"/> 
+              <memberOf key="att.canonical" mode="delete"/>
+              <memberOf key="att.naming" mode="delete"/>
+              <memberOf key="att.datable.w3c" mode="add"/>
+            </classes>
+            <attList>
+              <attDef ident="key" mode="add">
+                <datatype>
+                  <rng:ref name="id.place.pattern"/>
+                </datatype>
+              </attDef>
+            </attList>
+          </elementSpec>
+          
+        </schemaSpec>
+      </div>
+    </back>
+  </text>
+</TEI>

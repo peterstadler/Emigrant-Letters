@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>ODD for emigrant letter collections - Placeography</title>
+                <author>Anna Komprecht</author>
+                <author>Peter Stadler</author>
+            </titleStmt>
+            <publicationStmt>
+                <p>Freely available</p>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born digital document</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <div>
+                <head>Introduction</head>
+                <p>Some text here.</p>
+            </div>
+        </body>
+        <back>
+            <div>
+                <head>Formal Specification</head>
+                <schemaSpec ident="emigrantLettersPlaceography" docLang="en" prefix="tei_" xml:lang="en" start="listPlace">
+                    <moduleRef key="core" include="address desc street"/>
+                    <moduleRef key="tei"/>
+                    <moduleRef key="header" include="idno"/>
+                    <moduleRef key="namesdates" include="listPlace place placeName location settlement region country"/>
+                    
+                    <macroSpec ident="id.place.pattern" mode="add">
+                        <desc>Macro for specifying place IDs</desc>
+                        <content>
+                            <rng:data type="string">
+                                <rng:param name="pattern">LOUGHPlace_\d{4}</rng:param>
+                            </rng:data>
+                        </content>
+                    </macroSpec>
+                    
+                    <elementSpec ident="listPlace" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                            <memberOf key="att.declarable" mode="delete"/>
+                            <memberOf key="att.sortable" mode="delete"/>
+                        </classes>
+                        <content>
+                            <rng:oneOrMore>
+                                <rng:ref name="place"/>
+                            </rng:oneOrMore>
+                        </content>
+                    </elementSpec>
+                    
+                    <elementSpec ident="place" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                            <memberOf key="att.editLike" mode="delete"/>
+                            <memberOf key="att.dimensions" mode="delete"/>
+                            <memberOf key="att.ranging" mode="delete"/>
+                            <memberOf key="att.responsibility" mode="delete"/>
+                            <memberOf key="att.sortable" mode="delete"/>
+                        </classes>
+                        <content>
+                            <rng:optional>
+                                <rng:ref name="desc"/>
+                            </rng:optional>
+                            <rng:zeroOrMore>
+                                <rng:ref name="placeName"/>
+                            </rng:zeroOrMore>
+                            <rng:optional>
+                                <rng:ref name="location"/>
+                            </rng:optional>
+                            <rng:zeroOrMore>
+                                <rng:ref name="idno"/>
+                            </rng:zeroOrMore>
+                        </content>
+                        <attList>
+                            <attDef ident="xml:id" mode="add" usage="req">
+                                <datatype>
+                                    <rng:ref name="id.place.pattern"/>
+                                </datatype>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    
+                    <elementSpec ident="location" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                            <memberOf key="att.editLike" mode="delete"/>
+                            <memberOf key="att.dimensions" mode="delete"/>
+                            <memberOf key="att.ranging" mode="delete"/>
+                            <memberOf key="att.responsibilty" mode="delete"/>
+                        </classes>
+                        <content>
+                            <rng:ref name="address"/>
+                        </content>
+                    </elementSpec>
+                    
+                    <elementSpec ident="address" mode="change" module="core" ns="http://www.tei-c.org/ns/1.0">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                        </classes>
+                        <content>
+                            <rng:optional>
+                                <rng:ref name="street"/>
+                            </rng:optional>
+                            <rng:optional>
+                                <rng:ref name="settlement"/>
+                            </rng:optional>
+                            <rng:optional>
+                                <rng:ref name="region"/>
+                            </rng:optional>
+                            <rng:optional>
+                                <rng:ref name="region"/>
+                            </rng:optional>
+                            <rng:optional>
+                                <rng:ref name="region"/>
+                            </rng:optional>
+                            <rng:optional>
+                                <rng:ref name="country"/>
+                            </rng:optional>
+                        </content>
+                    </elementSpec>
+                    
+                    <elementSpec ident="settlement" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                            <memberOf key="att.canonical" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="type" mode="add" usage="req">
+                                <valList type="closed" mode="change">
+                                    <valItem ident="village"/>
+                                    <valItem ident="town/city"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    
+                    <elementSpec ident="region" mode="change" module="namesdates" ns="http://www.tei-c.org/ns/1.0">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.naming" mode="delete"/>
+                            <memberOf key="att.canonical" mode="delete"/>
+                            <memberOf key="att.typed" mode="delete"/>
+                            <memberOf key="att.datable" mode="delete"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="type" mode="add" usage="req">
+                                <valList type="closed" mode="change">
+                                    <valItem ident="state"/>
+                                    <valItem ident="province"/>
+                                    <valItem ident="county"/>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec> 
+                    
+                    <elementSpec ident="idno" mode="change" module="header" ns="http://www.tei-c.org/ns/1.0">
+                        <classes mode="change">
+                            <memberOf key="att.global" mode="delete"/>
+                            <memberOf key="att.sortable" mode="delete"/>
+                        </classes>
+                        <attList>
+                            <attDef ident="type" mode="change" usage="req">
+                                <valList type="closed" mode="add">
+                                    <valItem ident="TGN">
+                                        <gloss>Thesaurus of Geographic Names</gloss>
+                                        <desc>Vocabulary for names and information about geographic names</desc>
+                                    </valItem>
+                                    <valItem ident="GeoNames">
+                                        <desc>free geographic database</desc>
+                                    </valItem>
+                                </valList>
+                            </attDef>
+                        </attList>
+                    </elementSpec>
+                    
+                </schemaSpec>
+            </div>
+        </back>
+    </text>
+</TEI>

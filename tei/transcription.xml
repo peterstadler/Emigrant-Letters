@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml-model href="https://raw.github.com/Edirom/WeGA-ODD/master/schema/wegaLetter.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>-->
+<?xml-model href="schemata/emigrantLettersSchema.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="LOUGHLett_0001"
+    xmlns:emi="http://cuba.coventry.ac.uk/correspondence_corpora/schema">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title level="s">Emigrant Letters</title>
+                <title level="a">Julia Lough to her mother<lb/>Winsted, Wednesday, October 25, 1891</title>
+                <author key="LOUGHPers_0001">Julia Lough</author>
+                <editor>Peter Stadler</editor>
+                <editor>Anna Maria Komprecht</editor>
+            </titleStmt>
+            <editionStmt>
+                <edition>Emigrant Letters</edition>
+                <respStmt>
+                    <resp>Transcription</resp>
+                    <name>Peter Stadler</name>
+                    <name>Anna Maria Komprecht</name>
+                </respStmt>
+            </editionStmt>
+            <publicationStmt>
+<!--                <publisher>Emigrant Letters digital</publisher>-->
+                <availability status="restricted">
+                    <p>Available under a CC-BY license</p>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <emi:correspDesc>
+                    <emi:sender>
+                        <persName key="LOUGHPers_0001">Lough, Julia</persName>
+                    </emi:sender>
+                    <emi:addressee>
+                        <persName key="LOUGHPers_0002">Mother Lough</persName>
+                    </emi:addressee>
+                    <emi:placeSender>
+                        <placeName>Winsted</placeName>
+                    </emi:placeSender>
+                    <emi:dateSender>
+                        <date when="1891-10-25">October 25, 1891</date>
+                    </emi:dateSender>
+                    <incipit>Dearest Mother I received your welcome letter.</incipit>
+                </emi:correspDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <repository/>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text type="letter">
+        <body>
+            <div type="writingSession" n="01">
+                <opener>
+                    <dateline>
+                        <placeName key="LOUGHPlace_0001">
+                            <settlement>Winsted <lb/>Crows</settlement>
+                        </placeName>
+                        <date when="1891-10-25">June 25 <lb/>1891</date>
+                    </dateline>
+                
+                  <salute>Dearest <rs type="person" key="LOUGHPers_0002">Mother</rs></salute>
+                </opener>
+                <p>I received
+                    <lb/>your welcome letter. I was
+                    <lb/>very pleased to hear from
+                    <lb/>you and to know you
+                    <lb/>spent such a happy xmas
+                    <lb/>and had every thing you
+                    <lb/>wanted. I hope you are quite
+                    <lb/>well at the present time<supplied>.</supplied>
+                    <lb/>I was heart broken the other
+                    <lb/>night I dreamed you was 
+                    <lb/>dead and I could not 
+                    <lb/>see you and you never
+                    <lb/>left any message for me
+                    <lb/>so I woke up …
+                    
+                    <pb/>and I was so frightened till
+                    <lb/>I realised it was only a
+                    <lb/>dream. I hope I shall
+                    <lb/>meet you once more in life
+                    <lb/>and have a happy time
+                    <lb/>again. Let me know are
+                    <lb/>you very well this winter
+                    <lb/>and if your cough does be
+                    <lb/>as bad as usual and are
+                    <lb/>you able to get out to mass
+                    <lb/>every Sunday<supplied>.</supplied> I hope when
+                    <lb/>you go to town you go 
+                    <lb/>down to the chapel as
+                    <lb/>you used to do years ago
+                    <lb/>and pray and spend an 
+                    <lb/>hour with our Lord and 
+                    <lb/>remember us all there<supplied>.</supplied> 
+                    
+                    <pb/>This is the second or third
+                    <lb/>Sunday I have missed
+                    <lb/>mass since I came here<supplied>.</supplied>
+                    <lb/>it snowed last night and
+                    <lb/>all the morning so that
+                    <lb/>it was impossible to get
+                    <lb/>out. We are having a very
+                    <lb/>severe winter so far. We
+                    <lb/>are all well thank God
+                    <lb/>and I have not had
+                    <lb/>a severe cold in a long
+                    <lb/>time. I think it is 
+                    <lb/>dreadful to stay from
+                    <lb/>mass. The world is all
+                    <lb/>very well till our last day
+                    <lb/>comes and then what
+                    <lb/>have we but what little
+                    
+                    <pb/>good we have done for our
+                    <lb/>souls. Dear Mother don't
+                    <lb/>think I am comencing a
+                    <lb/>sermon but I see to much
+                    <lb/>and there is to many sudden
+                    <lb/>deaths it is terrible. I was
+                    <lb/>perfectly surprised to hear
+                    <lb/>of <persName key="LOUGHPers_0005">Mike Fitzgerald's</persName> death
+                    <lb/>how suddint. let me know
+                    <lb/>did he have the priest
+                    <lb/>or did he think he was
+                    <lb/>going to die. I should
+                    <lb/>think it would make
+                    <lb/>fine turn a new leaf
+                    <lb/>and be a better man<supplied>.</supplied> it
+                    <lb/>was very sad I do not
+                    <lb/>think he ever had much
+                    <lb/>happiness in this life<supplied>.</supplied>
+                </p>
+                <postscript>
+                    <p>I wrote to <persName key="LOUGHPers_0003">Mary</persName> last Week.</p>
+                </postscript>
+            </div>
+        </body>
+    </text>
+</TEI>
+

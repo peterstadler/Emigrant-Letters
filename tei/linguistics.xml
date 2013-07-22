@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>TEI for linguists</title>
+            <author>Peter Stadler</author>
+         </titleStmt>
+         <publicationStmt>
+            <p>freely available</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>born digital</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <p>
+            <interpGrp>
+               <interp></interp>
+            </interpGrp>
+         </p>
+         <p>
+            <s><!-- I'm taking the day off tomorrow. -->
+               <phr type="NP"><w lemma="I" type="PRP">I</w></phr>
+               <phr type="VP">
+                  <w lemma="'m" type="VBP">'m</w> 
+                  <phr type="VP">
+                     <w lemma="take" type="VBG">taking</w> 
+                     <phr type="ADVP">
+                        <phr type="NP">
+                           <w lemma="the" type="DT">the</w> <w lemma="day" type="NN">day</w>
+                        </phr> 
+                        <w lemma="off" type="IN">off</w>
+                     </phr> 
+                     <phr type="NP">
+                        <w lemma="tomorrow" type="NN">tomorrow</w>
+                     </phr>
+                  </phr>
+               </phr>
+               <pc>.</pc>
+            </s>
+         </p>
+      </body>
+  </text>
+</TEI>
