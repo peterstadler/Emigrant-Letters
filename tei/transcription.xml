@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<?xml-model href="https://raw.github.com/Edirom/WeGA-ODD/master/schema/wegaLetter.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>-->
-<?xml-model href="schemata/emigrantLettersSchema.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../schema/emigrantLettersSchema.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="LOUGHLett_0001"
     xmlns:emi="http://cuba.coventry.ac.uk/correspondence_corpora/schema">
     <teiHeader>
