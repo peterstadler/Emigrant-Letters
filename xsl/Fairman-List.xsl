@@ -170,7 +170,7 @@
             </xsl:element>
             <xsl:element name="sourceDesc">
                 <xsl:element name="p">
-                    <xsl:text>Transformed from Fairman-List.xml</xsl:text>
+                    <xsl:text>Born digital; transformed from Fairman-List.xml</xsl:text>
                 </xsl:element>
             </xsl:element>
         </xsl:copy>
@@ -182,6 +182,9 @@
                 <xsl:element name="application">
                     <xsl:attribute name="ident" select="'Fairman-List.xsl'"/>
                     <xsl:attribute name="version" select="'1.0'"/>
+                    <xsl:element name="desc">
+                        <xsl:text>An XSLT Stylesheet for transforming Fairman-List.xml</xsl:text>
+                    </xsl:element>
                 </xsl:element>
             </xsl:element>
         </xsl:copy>
