@@ -135,17 +135,10 @@
             <xsl:element name="div">
                 <xsl:attribute name="xml:id" select="'letter-list'"/>
                 <xsl:element name="head">List of letters</xsl:element>
-                <xsl:apply-templates select="id('completeList')/tei:table[6]"/>
+                <xsl:apply-templates select="id('completeList')/tei:table"/>
             </xsl:element>
         </xsl:copy>
     </xsl:template>
-    
-    <!-- Transforming the TEI header -->
-    <!--<xsl:template match="tei:teiHeader">
-        <xsl:copy>
-            <xsl:apply-templates/>
-        </xsl:copy>
-    </xsl:template>-->
     
     <xsl:template match="tei:fileDesc">
         <xsl:copy>
