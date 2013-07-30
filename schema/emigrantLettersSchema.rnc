@@ -8,9 +8,10 @@ namespace s = "http://www.ascc.net/xml/schematron"
 namespace sch = "http://purl.oclc.org/dsdl/schematron"
 namespace xlink = "http://www.w3.org/1999/xlink"
 
-# Schema generated from ODD source 2013-07-20T20:02:43Z. 
-# Edition: 2.3.0. Last updated on 17th January 2013.
-# Edition Location: http://www.tei-c.org/Vault/P5/2.3.0/
+# Schema generated from ODD source 2013-07-26T22:42:00Z. 
+# Edition: 2.5.0. Last updated on
+#	26th July 2013.
+# Edition Location: http://www.tei-c.org/Vault/P5/2.5.0/
 #
 
 #
@@ -54,7 +55,7 @@ tei_data.temporal.w3c =
   | xsd:dateTime
 tei_data.truthValue = xsd:boolean
 tei_data.xTruthValue = xsd:boolean | "unknown" | "inapplicable"
-tei_data.language = xsd:language
+tei_data.language = xsd:language | ""
 tei_data.outputMeasurement =
   xsd:token {
     pattern =
@@ -62,9 +63,11 @@ tei_data.outputMeasurement =
   }
 tei_data.pointer = xsd:anyURI
 tei_data.version = xsd:token { pattern = "[\d]+(\.[\d]+){0,2}" }
+tei_data.versionNumber =
+  xsd:token { pattern = "[\d]+[a-z]*[\d]*(\.[\d]+[a-z]*[\d]*){0,3}" }
 tei_data.word = xsd:token { pattern = "(\p{L}|\p{N}|\p{P}|\p{S})+" }
+tei_data.sex = tei_data.word
 tei_data.text = xsd:string
-tei_data.code = tei_data.word
 tei_data.name = xsd:Name
 tei_data.enumerated = tei_data.name
 tei_data.temporal.iso =
@@ -88,13 +91,11 @@ tei_att.canonical.attributes =
   tei_att.canonical.attribute.key, tei_att.canonical.attribute.ref
 tei_att.canonical.attribute.key =
   
-  ## provides an externally-defined means of identifying the entity (or entities) being
-  ##         named, using a coded value of some kind.
+  ## provides an externally-defined means of identifying the entity (or entities) being named, using a coded value of some kind.
   attribute key { tei_data.text }?
 tei_att.canonical.attribute.ref =
   
-  ## (reference) provides an explicit means of locating a full definition for the entity being named by
-  ##         means of one or more URIs.
+  ## (reference) provides an explicit means of locating a full definition for the entity being named by means of one or more URIs.
   attribute ref {
     list { tei_data.pointer+ }
   }?
@@ -114,20 +115,15 @@ tei_att.ranging.attribute.atMost =
   attribute atMost { tei_data.numeric }?
 tei_att.ranging.attribute.min =
   
-  ## where the measurement summarizes more than one observation
-  ##       or a range, supplies the minimum value
-  ##         observed.
+  ## where the measurement summarizes more than one observation or a range, supplies the minimum value observed.
   attribute min { tei_data.numeric }?
 tei_att.ranging.attribute.max =
   
-  ## where the measurement summarizes more than one observation
-  ##         or a range, supplies the maximum value
-  ##         observed.
+  ## where the measurement summarizes more than one observation or a range, supplies the maximum value observed.
   attribute max { tei_data.numeric }?
 tei_att.ranging.attribute.confidence =
   
-  ## specifies the degree of statistical confidence (between zero and one) that a value falls within the range
-  ##         specified by min and max, or the proportion of observed values that fall within that range.
+  ## specifies the degree of statistical confidence (between zero and one) that a value falls within the range specified by min and max, or the proportion of observed values that fall within that range.
   attribute confidence { tei_data.probability }?
 tei_att.dimensions.attributes =
   tei_att.ranging.attributes,
@@ -164,8 +160,7 @@ tei_att.dimensions.attribute.quantity =
   attribute quantity { tei_data.numeric }?
 tei_att.dimensions.attribute.extent =
   
-  ## indicates the size of the object concerned using a project-specific vocabulary combining
-  ##         quantity and units in a single string of words. 
+  ## indicates the size of the object concerned using a project-specific vocabulary combining quantity and units in a single string of words. 
   attribute extent { tei_data.text }?
 tei_att.dimensions.attribute.precision =
   
@@ -173,8 +168,7 @@ tei_att.dimensions.attribute.precision =
   attribute precision { tei_data.certainty }?
 tei_att.dimensions.attribute.scope =
   
-  ## where the measurement summarizes more than one observation, specifies the applicability
-  ##         of this measurement.
+  ## where the measurement summarizes more than one observation, specifies the applicability of this measurement.
   ## Sample values include: 1] all; 2] most; 3] range
   attribute scope { tei_data.enumerated }?
 tei_att.damaged.attributes =
@@ -185,8 +179,7 @@ tei_att.damaged.attributes =
   tei_att.damaged.attribute.group
 tei_att.damaged.attribute.hand =
   
-  ## in the case of damage (deliberate defacement, inking out, etc.) assignable to a distinct
-  ##         hand, signifies the hand responsible for the damage.
+  ## in the case of damage (deliberate defacement, inking out, etc.) assignable to a distinct hand, signifies the hand responsible for the damage.
   attribute hand { tei_data.pointer }?
 tei_att.damaged.attribute.agent =
   
@@ -195,27 +188,21 @@ tei_att.damaged.attribute.agent =
   attribute agent { tei_data.enumerated }?
 tei_att.damaged.attribute.degree =
   
-  ## signifies the degree of damage according to a convenient scale. The damage tag
-  ##         with the degree attribute should only be used where the text may be read with
-  ##         some confidence; text supplied from other sources should be tagged as supplied.
+  ## signifies the degree of damage according to a convenient scale. The damage tag with the degree attribute should only be used where the text may be read with some confidence; text supplied from other sources should be tagged as supplied.
   attribute degree { tei_data.probability | tei_data.certainty }?
 tei_att.damaged.attribute.group =
   
-  ## assigns an arbitrary number to each stretch of damage regarded as forming part of the
-  ##         same physical phenomenon.
+  ## assigns an arbitrary number to each stretch of damage regarded as forming part of the same physical phenomenon.
   attribute group { tei_data.count }?
 tei_att.breaking.attributes = tei_att.breaking.attribute.break
 tei_att.breaking.attribute.break =
   
-  ## indicates whether or not the  element
-  ##	bearing this attribute should be considered to mark the end of
-  ##	an orthographic token in the same way as whitespace.
+  ## indicates whether or not the element bearing this attribute should be considered to mark the end of an orthographic token in the same way as whitespace.
   attribute break { tei_data.enumerated }?
 tei_att.cReferencing.attributes = tei_att.cReferencing.attribute.cRef
 tei_att.cReferencing.attribute.cRef =
   
-  ## (canonical reference) specifies the destination of the pointer by supplying a canonical reference from a
-  ##         scheme defined in a refsDecl element in the TEI header
+  ## (canonical reference) specifies the destination of the pointer by supplying a canonical reference from a scheme defined in a refsDecl element in the TEI header
   attribute cRef { tei_data.text }?
 tei_att.datable.w3c.attributes =
   tei_att.datable.w3c.attribute.when,
@@ -225,18 +212,15 @@ tei_att.datable.w3c.attributes =
   tei_att.datable.w3c.attribute.to
 tei_att.datable.w3c.attribute.when =
   
-  ## supplies the value of the date or time in a standard form,
-  ##       e.g. yyyy-mm-dd.
+  ## supplies the value of the date or time in a standard form, e.g. yyyy-mm-dd.
   attribute when { tei_data.temporal.w3c }?
 tei_att.datable.w3c.attribute.notBefore =
   
-  ## specifies the earliest possible date for the event in
-  ##	  standard form, e.g. yyyy-mm-dd.
+  ## specifies the earliest possible date for the event in standard form, e.g. yyyy-mm-dd.
   attribute notBefore { tei_data.temporal.w3c }?
 tei_att.datable.w3c.attribute.notAfter =
   
-  ## specifies the latest possible date for the event in
-  ##	  standard form, e.g. yyyy-mm-dd.
+  ## specifies the latest possible date for the event in standard form, e.g. yyyy-mm-dd.
   attribute notAfter { tei_data.temporal.w3c }?
 tei_att.datable.w3c.attribute.from =
   
@@ -244,8 +228,7 @@ tei_att.datable.w3c.attribute.from =
   attribute from { tei_data.temporal.w3c }?
 tei_att.datable.w3c.attribute.to =
   
-  ## indicates the ending point of the period in standard
-  ##	  form, e.g. yyyy-mm-dd.
+  ## indicates the ending point of the period in standard form, e.g. yyyy-mm-dd.
   attribute to { tei_data.temporal.w3c }?
 tei_att.datable.attributes =
   tei_att.datable.w3c.attributes,
@@ -255,8 +238,7 @@ tei_att.datable.attributes =
   tei_att.datable.attribute.period
 tei_att.datable.attribute.calendar =
   
-  ## indicates the system or calendar to which the date represented by the content of this
-  ##         element belongs.
+  ## indicates the system or calendar to which the date represented by the content of this element belongs.
   attribute calendar { tei_data.pointer }?
 sch:pattern [
   id = "calendar-constraint-calendar"
@@ -282,59 +264,46 @@ sch:pattern [
 ]
 tei_att.datable.attribute.period =
   
-  ## supplies a pointer to some location defining a named
-  ##         period of time within which the datable item is understood to
-  ##         have occurred.
+  ## supplies a pointer to some location defining a named period of time within which the datable item is understood to have occurred.
   attribute period { tei_data.pointer }?
 tei_att.datcat.attributes =
   tei_att.datcat.attribute.datcat, tei_att.datcat.attribute.valueDatcat
 tei_att.datcat.attribute.datcat =
   
-  ## contains a PID (persistent identifier) that aligns the given element with the appropriate 
-  ##         Data Category (or categories) in ISOcat.
+  ## contains a PID (persistent identifier) that aligns the given element with the appropriate Data Category (or categories) in ISOcat.
   attribute ns1:datcat {
     list { tei_data.pointer+ }
   }?
 tei_att.datcat.attribute.valueDatcat =
   
-  ## contains a PID (persistent identifier) that aligns the content of the given
-  ##         element or the value of the given attribute with the appropriate simple Data
-  ##         Category (or categories) in ISOcat.
+  ## contains a PID (persistent identifier) that aligns the content of the given element or the value of the given attribute with the appropriate simple Data Category (or categories) in ISOcat.
   attribute ns1:valueDatcat {
     list { tei_data.pointer+ }
   }?
 tei_att.declarable.attributes = tei_att.declarable.attribute.default
 tei_att.declarable.attribute.default =
   
-  ## indicates whether or not this element is selected by default when
-  ## its parent is selected.
+  ## indicates whether or not this element is selected by default when its parent is selected.
   [ a:defaultValue = "false" ]
   attribute default {
     
     ## This element is selected if its parent is selected
     "true"
     | 
-      ## This element can only be selected explicitly, unless it is the
-      ## only one of its kind, in which case it is selected if its parent is selected.
+      ## This element can only be selected explicitly, unless it is the only one of its kind, in which case it is selected if its parent is selected.
       "false"
   }?
 tei_att.declaring.attributes = tei_att.declaring.attribute.decls
 tei_att.declaring.attribute.decls =
   
-  ## identifies one or more declarable elements within the
-  ## header, which are understood to apply to the element bearing this
-  ## attribute and its content.
+  ## identifies one or more declarable elements within the header, which are understood to apply to the element bearing this attribute and its content.
   attribute decls {
     list { tei_data.pointer+ }
   }?
 tei_att.fragmentable.attributes = tei_att.fragmentable.attribute.part
 tei_att.fragmentable.attribute.part =
   
-  ## specifies whether or not its parent element is fragmented
-  ##       in some way, typically by some other overlapping structure : for
-  ##       example a speech which is divided between two or more verse
-  ##       stanzas, a paragraph which is split across a page division, a
-  ##       verse line which is divided between two speakers.
+  ## specifies whether or not its parent element is fragmented in some way, typically by some other overlapping structure: for example a speech which is divided between two or more verse stanzas, a paragraph which is split across a page division, a verse line which is divided between two speakers.
   [ a:defaultValue = "N" ]
   attribute part {
     
@@ -363,20 +332,15 @@ tei_att.divLike.attribute.org =
   [ a:defaultValue = "uniform" ]
   attribute org {
     
-    ## composite content: i.e. no claim is made about the
-    ##		  sequence in which the immediate contents of this division
-    ##		  are to be processed, or their inter-relationships.
+    ## no claim is made about the sequence in which the immediate contents of this division are to be processed, or their inter-relationships.
     "composite"
     | 
-      ## uniform content: i.e. the immediate contents of this
-      ##		  element are regarded as forming a logical unit, to be
-      ##		  processed in sequence.
+      ## the immediate contents of this element are regarded as forming a logical unit, to be processed in sequence.
       "uniform"
   }?
 tei_att.divLike.attribute.sample =
   
-  ## indicates whether this division is a sample of the
-  ##		original source and if so, from which part.
+  ## indicates whether this division is a sample of the original source and if so, from which part.
   [ a:defaultValue = "complete" ]
   attribute sample {
     
@@ -398,8 +362,7 @@ tei_att.divLike.attribute.sample =
 tei_att.docStatus.attributes = tei_att.docStatus.attribute.status
 tei_att.docStatus.attribute.status =
   
-  ## describes the status of a document either currently or, when
-  ## associated with a dated element, at the time indicated.
+  ## describes the status of a document either currently or, when associated with a dated element, at the time indicated.
   ## Sample values include: 1] approved; 2] candidate; 3] cleared; 4] deprecated; 5] draft; 6] embargoed; 7] expired; 8] frozen; 9] galley; 10] proposed; 11] published; 12] recommendation; 13] submitted; 14] unfinished; 15] withdrawn
   [ a:defaultValue = "draft" ] attribute status { tei_data.enumerated }?
 tei_att.responsibility.attributes =
@@ -411,8 +374,7 @@ tei_att.responsibility.attribute.cert =
   attribute cert { tei_data.certainty }?
 tei_att.responsibility.attribute.resp =
   
-  ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an
-  ##         editor or transcriber.
+  ## (responsible party) indicates the agency responsible for the intervention or interpretation, for example an editor or transcriber.
   attribute resp {
     list { tei_data.pointer+ }
   }?
@@ -424,8 +386,7 @@ tei_att.editLike.attributes =
   tei_att.editLike.attribute.instant
 tei_att.editLike.attribute.evidence =
   
-  ## indicates the nature of the evidence supporting the reliability or accuracy of the
-  ##         intervention or interpretation.
+  ## indicates the nature of the evidence supporting the reliability or accuracy of the intervention or interpretation.
   ## Suggested values include: 1] internal; 2] external; 3] conjecture
   attribute evidence {
     list {
@@ -436,16 +397,14 @@ tei_att.editLike.attribute.evidence =
          ## there is external evidence to support the intervention.
          "external"
        | 
-         ## the intervention or interpretation has been made by the editor, cataloguer, or
-         ##             scholar on the basis of their expertise.
+         ## the intervention or interpretation has been made by the editor, cataloguer, or scholar on the basis of their expertise.
          "conjecture"
        | xsd:Name)+
     }
   }?
 tei_att.editLike.attribute.source =
   
-  ## contains a list of one or more pointers indicating sources
-  ##       supporting the given  intervention or interpretation.
+  ## contains a list of one or more pointers indicating sources supporting the given intervention or interpretation.
   attribute source {
     list { tei_data.pointer+ }
   }?
@@ -472,14 +431,11 @@ tei_att.global.attribute.xmlid =
   attribute xml:id { xsd:ID }?
 tei_att.global.attribute.n =
   
-  ## (number) gives a number (or other label) for an element, which is not necessarily unique within
-  ##         the document.
+  ## (number) gives a number (or other label) for an element, which is not necessarily unique within the document.
   attribute n { tei_data.text }?
 tei_att.global.attribute.xmllang =
   
-  ## (language) indicates the language of the element content using a tag generated
-  ##         according to BCP 47. 
-  ##          
+  ## (language) indicates the language of the element content using a tag generated according to BCP 47.
   attribute xml:lang { tei_data.language }?
 tei_att.global.attribute.rend =
   
@@ -489,26 +445,21 @@ tei_att.global.attribute.rend =
   }?
 tei_att.global.attribute.style =
   
-  ## contains an expression in some formal style definition language
-  ## which defines the rendering or presentation
-  ## used for this element in the source text 
+  ## contains an expression in some formal style definition language which defines the rendering or presentation used for this element in the source text 
   attribute style { tei_data.text }?
 tei_att.global.attribute.rendition =
   
-  ## points to a description of the rendering or presentation used for this element in the
-  ##         source text.
+  ## points to a description of the rendering or presentation used for this element in the source text.
   attribute rendition {
     list { tei_data.pointer+ }
   }?
 tei_att.global.attribute.xmlbase =
   
-  ## provides a base URI reference with which applications can resolve relative URI
-  ##         references into absolute URI references.
+  ## provides a base URI reference with which applications can resolve relative URI references into absolute URI references.
   attribute xml:base { tei_data.pointer }?
 tei_att.global.attribute.xmlspace =
   
-  ## signals an intention about how white space should be 
-  ##       managed by  applications. 
+  ## signals an intention about how white space should be managed by applications. 
   attribute xml:space {
     
     ## signals that the application's default white-space processing modes are acceptable
@@ -526,39 +477,33 @@ tei_att.handFeatures.attributes =
   tei_att.handFeatures.attribute.scope
 tei_att.handFeatures.attribute.scribe =
   
-  ## gives a name or other identifier for the scribe
-  ## believed to be responsible for this hand.
+  ## gives a name or other identifier for the scribe believed to be responsible for this hand.
   attribute scribe { tei_data.name }?
 tei_att.handFeatures.attribute.scribeRef =
   
-  ## points to a full description of the scribe concerned, typically supplied by a person element
-  ##       elsewhere in the description.
+  ## points to a full description of the scribe concerned, typically supplied by a person element elsewhere in the description.
   attribute scribeRef {
     list { tei_data.pointer+ }
   }?
 tei_att.handFeatures.attribute.script =
   
-  ## characterizes the particular script or writing style used by
-  ## this hand, for example secretary, copperplate, Chancery, Italian, etc.
+  ## characterizes the particular script or writing style used by this hand, for example secretary, copperplate, Chancery, Italian, etc.
   attribute script {
     list { tei_data.name+ }
   }?
 tei_att.handFeatures.attribute.scriptRef =
   
-  ## points to a full description of the script or writing style used by
-  ## this hand, typically supplied by a scriptNote element
-  ##       elsewhere in the description.
+  ## points to a full description of the script or writing style used by this hand, typically supplied by a scriptNote element elsewhere in the description.
   attribute scriptRef {
     list { tei_data.pointer+ }
   }?
 tei_att.handFeatures.attribute.medium =
   
-  ## describes the tint or type of ink, e.g. brown, or other
-  ## writing medium, e.g. pencil
+  ## describes the tint or type of ink, e.g. brown, or other writing medium, e.g. pencil
   attribute medium { tei_data.enumerated }?
 tei_att.handFeatures.attribute.scope =
   
-  ## specifies how widely this  hand is used in the manuscript.
+  ## specifies how widely this hand is used in the manuscript.
   attribute scope {
     
     ## only this hand is used throughout the manuscript
@@ -585,7 +530,7 @@ tei_att.media.attributes =
   tei_att.media.attribute.scale
 tei_att.media.attribute.width =
   
-  ## Where the media are displayed, indicates the  display width 
+  ## Where the media are displayed, indicates the display width 
   attribute width { tei_data.outputMeasurement }?
 tei_att.media.attribute.height =
   
@@ -593,8 +538,7 @@ tei_att.media.attribute.height =
   attribute height { tei_data.outputMeasurement }?
 tei_att.media.attribute.scale =
   
-  ## Where the media are displayed, indicates a scale factor to
-  ##       be applied when generating the desired display size
+  ## Where the media are displayed, indicates a scale factor to be applied when generating the desired display size
   attribute scale { tei_data.numeric }?
 tei_att.resourced.attributes = tei_att.resourced.attribute.url
 tei_att.resourced.attribute.url =
@@ -607,8 +551,7 @@ tei_att.measurement.attributes =
   tei_att.measurement.attribute.commodity
 tei_att.measurement.attribute.unit =
   
-  ## indicates the units used for the measurement, usually
-  ##       using the standard symbol for the desired units.
+  ## indicates the units used for the measurement, usually using the standard symbol for the desired units.
   ## Suggested values include: 1] m(metre) ; 2] kg(kilogram) ; 3] s(second) ; 4] Hz(hertz) ; 5] Pa(pascal) ; 6] Ω(ohm) ; 7] L(litre) ; 8] t(tonne) ; 9] ha(hectare) ; 10] Å(ångström) ; 11] mL(millilitre) ; 12] cm(centimetre) ; 13] dB(decibel) ; 14] kbit(kilobit) ; 15] Kibit(kibibit) ; 16] kB(kilobyte) ; 17] KiB(kibibyte) ; 18] MB(megabyte) ; 19] MiB(mebibyte) 
   attribute unit {
     
@@ -672,8 +615,7 @@ tei_att.measurement.attribute.unit =
   }?
 tei_att.measurement.attribute.quantity =
   
-  ## specifies the number of the specified units that
-  ##       comprise the measurement
+  ## specifies the number of the specified units that comprise the measurement
   attribute quantity { tei_data.numeric }?
 tei_att.measurement.attribute.commodity =
   
@@ -687,15 +629,11 @@ tei_att.naming.attributes =
   tei_att.naming.attribute.nymRef
 tei_att.naming.attribute.role =
   
-  ## may be used to specify further information about the entity referenced by
-  ## this name, for example the occupation of a person, or the status of a place. 
+  ## may be used to specify further information about the entity referenced by this name, for example the occupation of a person, or the status of a place. 
   attribute role { tei_data.enumerated }?
 tei_att.naming.attribute.nymRef =
   
-  ## (reference to the canonical name) provides a means of locating the canonical form
-  ##       (nym) of the names associated with the object
-  ##        named by
-  ##       the element bearing it.
+  ## (reference to the canonical name) provides a means of locating the canonical form (nym) of the names associated with the object named by the element bearing it.
   attribute nymRef {
     list { tei_data.pointer+ }
   }?
@@ -734,7 +672,7 @@ tei_att.placement.attribute.place =
          ## within the body of the text.
          "inline"
        | 
-         ##  in a predefined space, for example left by an earlier scribe.
+         ## in a predefined space, for example left by an earlier scribe.
          "inspace"
        | xsd:Name)+
     }
@@ -743,21 +681,40 @@ tei_att.typed.attributes =
   tei_att.typed.attribute.type, tei_att.typed.attribute.subtype
 tei_att.typed.attribute.type =
   
-  ## characterizes the element in some sense, using any convenient
-  ##  classification scheme or typology.
+  ## characterizes the element in some sense, using any convenient classification scheme or typology.
   attribute type { tei_data.enumerated }?
 tei_att.typed.attribute.subtype =
   
   ## provides a sub-categorization of the element, if needed
   attribute subtype { tei_data.enumerated }?
+sch:pattern [
+  id = "att.typed-constraint-subtypeTyped"
+  "\x{a}" ~
+  "      "
+  sch:rule [
+    context = "*[@subtype]"
+    "\x{a}" ~
+    "	        "
+    sch:assert [
+      test = "@type"
+      "The "
+      sch:name [ ]
+      " element should not be categorized in detail with @subtype\x{a}" ~
+      " unless also categorized in general with @type"
+    ]
+    "\x{a}" ~
+    "      "
+  ]
+  "\x{a}" ~
+  "   "
+]
 tei_att.pointing.attributes =
   tei_att.pointing.attribute.targetLang,
   tei_att.pointing.attribute.target,
   tei_att.pointing.attribute.evaluate
 tei_att.pointing.attribute.targetLang =
   
-  ## specifies the language of the content to be found at the destination referenced by target, using a language tag generated
-  ##         according to BCP 47.
+  ## specifies the language of the content to be found at the destination referenced by target, using a language tag generated according to BCP 47.
   attribute targetLang { tei_data.language }?
 sch:pattern [
   id = "targetLang-constraint-targetLang"
@@ -785,23 +742,16 @@ tei_att.pointing.attribute.target =
   }?
 tei_att.pointing.attribute.evaluate =
   
-  ## specifies the intended meaning when the target of a
-  ##       pointer is itself a pointer.
+  ## specifies the intended meaning when the target of a pointer is itself a pointer.
   attribute evaluate {
     
-    ## if the element pointed to is itself a pointer, then
-    ##	  the target of that pointer will be taken, and so on, until
-    ##	  an element is found which is not a pointer.
+    ## if the element pointed to is itself a pointer, then the target of that pointer will be taken, and so on, until an element is found which is not a pointer.
     "all"
     | 
-      ## if the element pointed to is itself a pointer, then
-      ##	  its target (whether a pointer or not) is taken as the target
-      ##	  of this pointer.
+      ## if the element pointed to is itself a pointer, then its target (whether a pointer or not) is taken as the target of this pointer.
       "one"
     | 
-      ## no further evaluation of targets is carried out
-      ##	  beyond that needed to find the element specified in the
-      ##	  pointer's target.
+      ## no further evaluation of targets is carried out beyond that needed to find the element specified in the pointer's target.
       "none"
   }?
 tei_att.segLike.attributes =
@@ -821,25 +771,20 @@ tei_att.edition.attributes =
   tei_att.edition.attribute.ed, tei_att.edition.attribute.edRef
 tei_att.edition.attribute.ed =
   
-  ## (edition) supplies an arbitrary identifier for the source edition in which
-  ##       the associated feature (for example, a  page, column, or line
-  ##       break) occurs at this point in the text.
+  ## (edition) supplies an arbitrary identifier for the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
   attribute ed {
-    list { tei_data.code+ }
+    list { tei_data.word+ }
   }?
 tei_att.edition.attribute.edRef =
   
-  ##  (edition reference) provides a pointer to the source edition in which
-  ##       the associated feature (for example, a  page, column, or line
-  ##       break) occurs at this point in the text.
+  ##  (edition reference) provides a pointer to the source edition in which the associated feature (for example, a page, column, or line break) occurs at this point in the text.
   attribute edRef {
     list { tei_data.pointer+ }
   }?
 tei_att.spanning.attributes = tei_att.spanning.attribute.spanTo
 tei_att.spanning.attribute.spanTo =
   
-  ## indicates the end of a span initiated by the element
-  ##	bearing this attribute.
+  ## indicates the end of a span initiated by the element bearing this attribute.
   attribute spanTo { tei_data.pointer }?
 sch:pattern [
   id = "spanTo-constraint-spanTo-2"
@@ -850,33 +795,15 @@ sch:pattern [
     "\x{a}" ~
     "         "
     sch:assert [
-      test = "following::*[@xml:id=substring(current()/@spanTo,2)]"
+      test =
+        "id(substring(@spanTo,2)) and following::*[@xml:id=substring(current()/@spanTo,2)]"
       "\x{a}" ~
-      "The element indicated by @spanTo must follow the current element "
+      "The element indicated by @spanTo ("
+      sch:value-of [ select = "@spanTo" ]
+      ") must follow the current element "
       sch:name [ ]
       "\x{a}" ~
       "         "
-    ]
-    "\x{a}" ~
-    "      "
-  ]
-  "\x{a}" ~
-  "   "
-]
-sch:pattern [
-  id = "spanTo-constraint-spanTo-3"
-  "\x{a}" ~
-  "      "
-  sch:rule [
-    context = "tei:*[@spanTo]"
-    "\x{a}" ~
-    "         "
-    sch:assert [
-      test = "id(substring(@spanTo,2))"
-      "\x{a}" ~
-      "@spanTo on "
-      sch:name [ ]
-      " must point to  the identifier of some element  in this document"
     ]
     "\x{a}" ~
     "      "
@@ -890,8 +817,7 @@ tei_att.tableDecoration.attributes =
   tei_att.tableDecoration.attribute.cols
 tei_att.tableDecoration.attribute.role =
   
-  ## indicates the kind of information held in this cell or
-  ## in each cell of this row.
+  ## indicates the kind of information held in this cell or in each cell of this row.
   ## Suggested values include: 1] label; 2] data
   [ a:defaultValue = "data" ]
   attribute role {
@@ -909,8 +835,7 @@ tei_att.tableDecoration.attribute.rows =
   [ a:defaultValue = "1" ] attribute rows { tei_data.count }?
 tei_att.tableDecoration.attribute.cols =
   
-  ## (columns) indicates the number of columns occupied by this cell or
-  ##	row.
+  ## (columns) indicates the number of columns occupied by this cell or row.
   [ a:defaultValue = "1" ] attribute cols { tei_data.count }?
 tei_att.transcriptional.attributes =
   tei_att.editLike.attributes,
@@ -924,11 +849,7 @@ tei_att.transcriptional.attribute.hand =
   attribute hand { tei_data.pointer }?
 tei_att.transcriptional.attribute.status =
   
-  ## indicates the effect of the intervention, for example in
-  ##       the case of a deletion, strikeouts
-  ##       which include too much or too little text, or in the case of an
-  ##       addition, an insertion which duplicates some of the text
-  ##       already present.
+  ## indicates the effect of the intervention, for example in the case of a deletion, strikeouts which include too much or too little text, or in the case of an addition, an insertion which duplicates some of the text already present.
   ## Sample values include: 1] duplicate; 2] duplicate-partial; 3] excessStart; 4] excessEnd; 5] shortStart; 6] shortEnd; 7] partial; 8] unremarkable
   [ a:defaultValue = "unremarkable" ]
   attribute status { tei_data.enumerated }?
@@ -940,14 +861,12 @@ tei_att.transcriptional.attribute.cause =
     ## repeated for the purpose of fixation
     "fix"
     | 
-      ## repeated to clarify a previously illegible or badly written text
-      ##    or mark
+      ## repeated to clarify a previously illegible or badly written text or mark
       "unclear"
   }?
 tei_att.transcriptional.attribute.seq =
   
-  ## (sequence) assigns a sequence number related to the order in which
-  ##       the encoded features carrying this attribute are believed to have occurred.
+  ## (sequence) assigns a sequence number related to the order in which the encoded features carrying this attribute are believed to have occurred.
   attribute seq { tei_data.count }?
 tei_att.translatable.attributes =
   tei_att.translatable.attribute.versionDate
@@ -1121,15 +1040,18 @@ tei_model.global.meta = tei_index
 tei_model.milestoneLike =
   tei_milestone | tei_pb | tei_lb | tei_cb | tei_anchor
 tei_model.gLike = notAllowed
-tei_model.biblLike = tei_bibl | tei_biblStruct | tei_msDesc
-tei_model.biblLike_alternation = tei_bibl | tei_biblStruct | tei_msDesc
-tei_model.biblLike_sequence = tei_bibl, tei_biblStruct, tei_msDesc
+tei_model.biblLike =
+  tei_bibl | tei_biblStruct | tei_listBibl | tei_msDesc
+tei_model.biblLike_alternation =
+  tei_bibl | tei_biblStruct | tei_listBibl | tei_msDesc
+tei_model.biblLike_sequence =
+  tei_bibl, tei_biblStruct, tei_listBibl, tei_msDesc
 tei_model.biblLike_sequenceOptional =
-  tei_bibl?, tei_biblStruct?, tei_msDesc?
+  tei_bibl?, tei_biblStruct?, tei_listBibl?, tei_msDesc?
 tei_model.biblLike_sequenceOptionalRepeatable =
-  tei_bibl*, tei_biblStruct*, tei_msDesc*
+  tei_bibl*, tei_biblStruct*, tei_listBibl*, tei_msDesc*
 tei_model.biblLike_sequenceRepeatable =
-  tei_bibl+, tei_biblStruct+, tei_msDesc+
+  tei_bibl+, tei_biblStruct+, tei_listBibl+, tei_msDesc+
 tei_model.headLike = tei_head
 tei_model.headLike_alternation = tei_head
 tei_model.headLike_sequence = tei_head
@@ -1142,17 +1064,17 @@ tei_model.labelLike_sequence = tei_desc, tei_label
 tei_model.labelLike_sequenceOptional = tei_desc?, tei_label?
 tei_model.labelLike_sequenceOptionalRepeatable = tei_desc*, tei_label*
 tei_model.labelLike_sequenceRepeatable = tei_desc+, tei_label+
-tei_model.listLike = tei_list | tei_listBibl | tei_table | tei_listWit
+tei_model.listLike = tei_list | tei_listPerson | tei_table | tei_listWit
 tei_model.listLike_alternation =
-  tei_list | tei_listBibl | tei_table | tei_listWit
+  tei_list | tei_listPerson | tei_table | tei_listWit
 tei_model.listLike_sequence =
-  tei_list, tei_listBibl, tei_table, tei_listWit
+  tei_list, tei_listPerson, tei_table, tei_listWit
 tei_model.listLike_sequenceOptional =
-  tei_list?, tei_listBibl?, tei_table?, tei_listWit?
+  tei_list?, tei_listPerson?, tei_table?, tei_listWit?
 tei_model.listLike_sequenceOptionalRepeatable =
-  tei_list*, tei_listBibl*, tei_table*, tei_listWit*
+  tei_list*, tei_listPerson*, tei_table*, tei_listWit*
 tei_model.listLike_sequenceRepeatable =
-  tei_list+, tei_listBibl+, tei_table+, tei_listWit+
+  tei_list+, tei_listPerson+, tei_table+, tei_listWit+
 tei_model.noteLike = tei_note
 tei_model.lLike = tei_l
 tei_model.lLike_alternation = tei_l
@@ -1166,16 +1088,20 @@ tei_model.pLike_sequence = tei_p
 tei_model.pLike_sequenceOptional = tei_p?
 tei_model.pLike_sequenceOptionalRepeatable = tei_p*
 tei_model.pLike_sequenceRepeatable = tei_p+
-tei_model.stageLike = tei_stage
-tei_model.stageLike_alternation = tei_stage
-tei_model.stageLike_sequence = tei_stage
-tei_model.stageLike_sequenceOptional = tei_stage?
-tei_model.stageLike_sequenceOptionalRepeatable = tei_stage*
-tei_model.stageLike_sequenceRepeatable = tei_stage+
+tei_model.stageLike = notAllowed
+tei_model.stageLike_alternation = notAllowed
+tei_model.stageLike_sequence = empty
+tei_model.stageLike_sequenceOptional = empty
+tei_model.stageLike_sequenceOptionalRepeatable = empty
+tei_model.stageLike_sequenceRepeatable = notAllowed
 tei_model.entryPart = notAllowed
 tei_model.global.edit =
   tei_gap | tei_addSpan | tei_damageSpan | tei_delSpan | tei_space
-tei_model.divPart = tei_model.lLike | tei_model.pLike | tei_lg | tei_sp
+tei_model.divPart = tei_model.lLike | tei_model.pLike | tei_lg
+tei_model.persStateLike = tei_persName | tei_residence | tei_sex
+tei_model.personLike = tei_person
+tei_model.personPart =
+  tei_model.biblLike | tei_model.persStateLike | tei_idno
 tei_model.placeNamePart =
   tei_placeName
   | tei_country
@@ -1251,13 +1177,11 @@ tei_model.qLike_sequenceRepeatable =
   tei_model.quoteLike_sequenceRepeatable+, tei_q+, tei_floatingText+
 tei_model.respLike = tei_author | tei_editor | tei_respStmt | tei_funder
 tei_model.divWrapper = tei_byline | tei_dateline | tei_salute
-tei_model.divTopPart = tei_model.headLike | tei_opener
+tei_model.divTopPart = tei_model.headLike | tei_opener | tei_correspDesc
 tei_model.divTop = tei_model.divWrapper | tei_model.divTopPart
-tei_model.pLike.front = tei_head | tei_byline | tei_titlePart
+tei_model.pLike.front = tei_head | tei_byline
 tei_model.divBottomPart = tei_closer | tei_signed | tei_postscript
 tei_model.divBottom = tei_model.divWrapper | tei_model.divBottomPart
-tei_model.titlepagePart =
-  tei_graphic | tei_byline | tei_titlePart | tei_imprimatur
 tei_model.choicePart =
   tei_sic
   | tei_corr
@@ -1323,7 +1247,7 @@ tei_model.biblPart =
   | tei_edition
   | tei_extent
   | tei_msIdentifier
-tei_model.frontPart = tei_titlePage
+tei_model.frontPart = notAllowed
 tei_model.addrPart =
   tei_model.nameLike
   | tei_addrLine
@@ -1359,9 +1283,11 @@ tei_model.limitedPhrase =
 tei_model.divLike = tei_div
 tei_model.divGenLike = notAllowed
 tei_model.div1Like = notAllowed
+tei_model.applicationLike = tei_application
 tei_model.teiHeaderPart = tei_encodingDesc | tei_profileDesc
 tei_model.sourceDescPart = tei_correspDesc
-tei_model.encodingDescPart = tei_projectDesc | tei_editorialDecl
+tei_model.encodingDescPart =
+  tei_projectDesc | tei_editorialDecl | tei_appInfo
 tei_model.editorialDeclPart = tei_quotation
 tei_model.profileDescPart =
   tei_creation | tei_langUsage | tei_textClass | tei_handNotes
@@ -1379,8 +1305,7 @@ tei_att.personal.attributes =
   tei_att.personal.attribute.sort
 tei_att.personal.attribute.full =
   
-  ## indicates whether the name component is given in full, as an
-  ## abbreviation or simply as an initial.
+  ## indicates whether the name component is given in full, as an abbreviation or simply as an initial.
   [ a:defaultValue = "yes" ]
   attribute full {
     
@@ -1390,14 +1315,12 @@ tei_att.personal.attribute.full =
       ## (abbreviated) the name component is given in an abbreviated form.
       "abb"
     | 
-      ## (initial letter) the name component is indicated only by
-      ## one initial.
+      ## (initial letter) the name component is indicated only by one initial.
       "init"
   }?
 tei_att.personal.attribute.sort =
   
-  ## specifies the sort order of the name component in relation
-  ## to others within the name.
+  ## specifies the sort order of the name component in relation to others within the name.
   attribute sort { tei_data.count }?
 tei_att.milestoneUnit.attributes = tei_att.milestoneUnit.attribute.unit
 tei_att.milestoneUnit.attribute.unit =
@@ -1458,28 +1381,23 @@ tei_p =
   }
 tei_foreign =
   
-  ## (foreign) identifies a word or phrase as belonging to some language other than that of the
-  ##                 surrounding text.  [3.3.2.1. ]
+  ## (foreign) identifies a word or phrase as belonging to some language other than that of the surrounding text.  [3.3.2.1. ]
   element foreign {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_emph =
   
-  ## (emphasized) marks words or phrases which are stressed or emphasized for
-  ##         linguistic or rhetorical effect. [3.3.2.2.  3.3.2. ]
+  ## (emphasized) marks words or phrases which are stressed or emphasized for linguistic or rhetorical effect. [3.3.2.2.  3.3.2. ]
   element emph {
     tei_macro.paraContent, tei_att.global.attributes, empty
   }
 tei_hi =
   
-  ## (highlighted) marks a word or phrase as graphically distinct from the
-  ##         surrounding text, for reasons concerning which no claim is
-  ##         made.  [3.3.2.2.  3.3.2. ]
+  ## (highlighted) marks a word or phrase as graphically distinct from the surrounding text, for reasons concerning which no claim is made.  [3.3.2.2.  3.3.2. ]
   element hi { tei_macro.paraContent, tei_att.global.attributes, empty }
 tei_quote =
   
-  ## (quotation) contains a phrase or passage attributed by the narrator or author to some agency external
-  ##         to the text. [3.3.3.  4.3.1. ]
+  ## (quotation) contains a phrase or passage attributed by the narrator or author to some agency external to the text. [3.3.3.  4.3.1. ]
   element quote {
     tei_macro.specialPara,
     tei_att.global.attributes,
@@ -1490,19 +1408,15 @@ tei_quote =
   }
 tei_q =
   
-  ## (quoted) contains material which is distinguished from the
-  ##     surrounding text using quotation marks or a similar method, for any one of a variety of reasons including, but not limited to: direct
-  ##     speech or thought, technical terms or jargon, authorial distance, quotations from elsewhere, and
-  ##     passages that are mentioned but not used. [3.3.3. ]
+  ## (quoted) contains material which is distinguished from the surrounding text using quotation marks or a similar method, for any one of a variety of reasons including, but not limited to: direct speech or thought, technical terms or jargon, authorial distance, quotations from elsewhere, and passages that are mentioned but not used. [3.3.3. ]
   element q {
     tei_macro.specialPara,
     tei_att.global.attributes,
     tei_att.ascribed.attributes,
     tei_att.source.attributes,
     
-    ## may be used to indicate whether the offset passage is spoken or thought, or to
-    ##         characterize it more finely.
-    ## Suggested values include: 1] spoken; 2] thought; 3] written; 4] soCalled; 5] foreign(foreign words) ; 6] distinct(linguistically distinct) ; 7] term(technical term) ; 8] emph(rhetorically emphasized) ; 9] mentioned
+    ## may be used to indicate whether the offset passage is spoken or thought, or to characterize it more finely.
+    ## Suggested values include: 1] spoken; 2] thought; 3] written; 4] soCalled; 5] foreign; 6] distinct; 7] term; 8] emph; 9] mentioned
     attribute type {
       
       ## representation of speech
@@ -1517,16 +1431,16 @@ tei_q =
         ## authorial distance
         "soCalled"
       | 
-        ## (foreign words) 
+        ##
         "foreign"
       | 
-        ## (linguistically distinct) 
+        ## linguistically distinct
         "distinct"
       | 
-        ## (technical term) 
+        ## technical term
         "term"
       | 
-        ## (rhetorically emphasized) 
+        ## rhetorically emphasized
         "emph"
       | 
         ## refering to itself, not its normal referant
@@ -1537,9 +1451,7 @@ tei_q =
   }
 tei_cit =
   
-  ## (cited quotation) contains a quotation from some other document, together with a bibliographic reference to
-  ##     its source. In a dictionary it may contain an example text with at least one occurrence of the
-  ##     word form, used in the sense being described, or a translation of the headword, or an example.  [3.3.3.  4.3.1.  9.3.5.1. ]
+  ## (cited quotation) contains a quotation from some other document, together with a bibliographic reference to its source. In a dictionary it may contain an example text with at least one occurrence of the word form, used in the sense being described, or a translation of the headword, or an example.  [3.3.3.  4.3.1.  9.3.5.1. ]
   element cit {
     (tei_model.qLike
      | tei_model.egLike
@@ -1553,15 +1465,13 @@ tei_cit =
   }
 tei_soCalled =
   
-  ## contains a word or phrase for which the author or narrator indicates a disclaiming of
-  ##     responsibility, for example by the use of scare quotes or italics. [3.3.3. ]
+  ## contains a word or phrase for which the author or narrator indicates a disclaiming of responsibility, for example by the use of scare quotes or italics. [3.3.3. ]
   element soCalled {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_desc =
   
-  ## (description) contains a brief description of the object documented by its parent element, including its
-  ##     intended usage, purpose, or application where this is appropriate. [22.4.4.  22.4.5.  22.4.6.  22.4.7. ]
+  ## (description) contains a brief description of the object documented by its parent element, including its intended usage, purpose, or application where this is appropriate. [22.4.1. ]
   element desc {
     tei_macro.limitedContent,
     tei_att.global.attributes,
@@ -1570,8 +1480,7 @@ tei_desc =
   }
 tei_gloss =
   
-  ## identifies a phrase or word used to provide a gloss or definition for some other word or
-  ##     phrase. [3.3.4. ]
+  ## identifies a phrase or word used to provide a gloss or definition for some other word or phrase. [3.3.4.  22.4.1. ]
   element gloss {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -1584,8 +1493,7 @@ tei_gloss =
   }
 tei_term =
   
-  ## contains a single-word, multi-word, or symbolic designation which is regarded as a technical
-  ##     term. [3.3.4. ]
+  ## contains a single-word, multi-word, or symbolic designation which is regarded as a technical term. [3.3.4. ]
   element term {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -1618,8 +1526,7 @@ tei_corr =
   }
 tei_choice =
   
-  ## groups a number of alternative encodings for the same point in
-  ##         a text. [3.4. ]
+  ## groups a number of alternative encodings for the same point in a text. [3.4. ]
   element choice {
     (tei_model.choicePart | tei_choice)*,
     tei_att.global.attributes,
@@ -1627,8 +1534,7 @@ tei_choice =
   }
 tei_orig =
   
-  ## (original form) contains a reading which is marked as following the original, rather than being normalized
-  ##         or corrected. [3.4.2.  12. ]
+  ## (original form) contains a reading which is marked as following the original, rather than being normalized or corrected. [3.4.2.  12. ]
   element orig {
     tei_macro.paraContent,
     tei_att.global.attributes,
@@ -1637,34 +1543,28 @@ tei_orig =
   }
 tei_gap =
   
-  ## (gap) indicates a point where material has been omitted in a transcription, whether for editorial
-  ##     reasons described in the TEI header, as part of sampling practice, or because the material is
-  ##     illegible, invisible, or inaudible. [3.4.3. ]
+  ## (gap) indicates a point where material has been omitted in a transcription, whether for editorial reasons described in the TEI header, as part of sampling practice, or because the material is illegible, invisible, or inaudible. [3.4.3. ]
   element gap {
     (tei_model.descLike | tei_model.certLike)*,
     tei_att.global.attributes,
     tei_att.editLike.attributes,
     
-    ## gives the reason for omission. Sample values include sampling,
-    ##         inaudible, irrelevant, cancelled.
+    ## gives the reason for omission. Sample values include sampling, inaudible, irrelevant, cancelled.
     attribute reason {
       list { tei_data.word+ }
     }?,
     
-    ## in the case of text omitted from the transcription because of deliberate deletion by an
-    ##         identifiable hand, signifies the hand which made the deletion.
+    ## in the case of text omitted from the transcription because of deliberate deletion by an identifiable hand, signifies the hand which made the deletion.
     attribute hand { tei_data.pointer }?,
     
-    ## In the case of text omitted because of damage, categorizes the cause of the damage, if
-    ##         it can be identified.
+    ## In the case of text omitted because of damage, categorizes the cause of the damage, if it can be identified.
     ## Sample values include: 1] rubbing; 2] mildew; 3] smoke
     attribute agent { tei_data.enumerated }?,
     empty
   }
 tei_add =
   
-  ## (addition) contains letters, words, or phrases inserted in the text by an
-  ##         author, scribe, annotator, or corrector. [3.4.3. ]
+  ## (addition) contains letters, words, or phrases inserted in the source text by an author, scribe, annotator, or corrector. [3.4.3. ]
   element add {
     tei_macro.paraContent,
     tei_att.global.attributes,
@@ -1675,8 +1575,7 @@ tei_add =
   }
 tei_del =
   
-  ## (deletion) contains a letter, word, or passage deleted, marked as deleted, or otherwise indicated as
-  ##     superfluous or spurious in the copy text by an author, scribe, annotator, or corrector. [3.4.3. ]
+  ## (deletion) contains a letter, word, or passage deleted, marked as deleted, or otherwise indicated as superfluous or spurious in the copy text by an author, scribe, annotator, or corrector. [3.4.3. ]
   element del {
     tei_macro.paraContent,
     tei_att.global.attributes,
@@ -1686,8 +1585,7 @@ tei_del =
   }
 tei_unclear =
   
-  ## contains a word, phrase, or passage which cannot be transcribed with certainty because it
-  ##         is illegible or inaudible in the source. [11.3.3.1.  3.4.3. ]
+  ## contains a word, phrase, or passage which cannot be transcribed with certainty because it is illegible or inaudible in the source. [11.3.3.1.  3.4.3. ]
   element unclear {
     tei_macro.paraContent,
     tei_att.global.attributes,
@@ -1698,12 +1596,10 @@ tei_unclear =
       list { tei_data.word+ }
     }?,
     
-    ## Where the difficulty in transcription arises from action (partial deletion, etc.)
-    ##                 assignable to an identifiable hand, signifies the hand responsible for the action.
+    ## Where the difficulty in transcription arises from action (partial deletion, etc.) assignable to an identifiable hand, signifies the hand responsible for the action.
     attribute hand { tei_data.pointer }?,
     
-    ## Where the difficulty in transcription arises from damage, categorizes the cause of
-    ##                 the damage, if it can be identified.
+    ## Where the difficulty in transcription arises from damage, categorizes the cause of the damage, if it can be identified.
     ## Sample values include: 1] rubbing; 2] mildew; 3] smoke
     attribute agent { tei_data.enumerated }?,
     empty
@@ -1732,16 +1628,13 @@ tei_rs =
   }
 tei_email =
   
-  ## (electronic mail address) contains an e-mail address identifying a location to which
-  ##         e-mail messages can be delivered.
-  ##      [3.5.2. ]
+  ## (electronic mail address) contains an e-mail address identifying a location to which e-mail messages can be delivered.  [3.5.2. ]
   element email {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_address =
   
-  ## contains a postal  address, for example of a
-  ##         publisher, an organization, or an individual. [3.5.2.  2.2.4.  3.11.2.3. ]
+  ## contains a postal address, for example of a publisher, an organization, or an individual. [3.5.2.  2.2.4.  3.11.2.4. ]
   element address {
     (tei_model.global*, (tei_model.addrPart, tei_model.global*)+),
     tei_att.global.attributes,
@@ -1749,27 +1642,23 @@ tei_address =
   }
 tei_addrLine =
   
-  ## (address line) contains one line of a postal address. [3.5.2.  2.2.4.  3.11.2.3. ]
+  ## (address line) contains one line of a postal address. [3.5.2.  2.2.4.  3.11.2.4. ]
   element addrLine {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_street =
   
-  ## contains a full street address including any name or number identifying a
-  ##         building as well as the name of the street or route on which it is
-  ##         located. [3.5.2. ]
+  ## contains a full street address including any name or number identifying a building as well as the name of the street or route on which it is located. [3.5.2. ]
   element street {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_postCode =
   
-  ## (postal code) contains a numerical or alphanumeric code used as part of a postal address to simplify
-  ##         sorting or delivery of mail.  [3.5.2. ]
+  ## (postal code) contains a numerical or alphanumeric code used as part of a postal address to simplify sorting or delivery of mail.  [3.5.2. ]
   element postCode { text, tei_att.global.attributes, empty }
 tei_postBox =
   
-  ## (postal box or post office box) contains a number or other identifier for some postal delivery point other than a street
-  ##     address.  [3.5.2. ]
+  ## (postal box or post office box) contains a number or other identifier for some postal delivery point other than a street address.  [3.5.2. ]
   element postBox { text, tei_att.global.attributes, empty }
 tei_num =
   
@@ -1803,8 +1692,7 @@ tei_num =
   }
 tei_measure =
   
-  ## contains a word or phrase referring to some quantity of an object or commodity, usually
-  ##         comprising a number, a unit, and a commodity name. [3.5.3. ]
+  ## contains a word or phrase referring to some quantity of an object or commodity, usually comprising a number, a unit, and a commodity name. [3.5.3. ]
   element measure {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -1816,7 +1704,7 @@ tei_measure =
   }
 tei_date =
   
-  ## contains a date in any format. [3.5.4.  2.2.4.  2.5.  3.11.2.3.  15.2.3.  13.3.6. ]
+  ## contains a date in any format. [3.5.4.  2.2.4.  2.5.  3.11.2.4.  15.2.3.  13.3.6. ]
   element date {
     (text | tei_model.gLike | tei_model.phrase | tei_model.global)*,
     tei_att.global.attributes,
@@ -1834,8 +1722,7 @@ tei_abbr =
     tei_att.responsibility.attributes,
     tei_att.typed.attribute.subtype,
     
-    ## allows the encoder to classify the abbreviation according to some convenient
-    ##                 typology.
+    ## allows the encoder to classify the abbreviation according to some convenient typology.
     attribute type { tei_data.enumerated }?,
     empty
   }
@@ -1944,8 +1831,7 @@ tei_list =
         ## list items are not numbered or bulleted. 
         "simple"
       | 
-        ## each list item glosses some term or concept, which is given by a label element
-        ##             preceding the list item.
+        ## each list item glosses some term or concept, which is given by a label element preceding the list item.
         "gloss"
       | xsd:Name
     }?,
@@ -1962,8 +1848,7 @@ tei_item =
   }
 tei_label =
   
-  ## contains any label or heading used to identify part of a text,
-  ##   typically but not exclusively in a list or glossary. [3.7. ]
+  ## contains any label or heading used to identify part of a text, typically but not exclusively in a list or glossary. [3.7. ]
   element label {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -1973,8 +1858,7 @@ tei_label =
   }
 tei_head =
   
-  ## (heading) contains any type of heading, for example the title of a section, or the heading of a list,
-  ##     glossary, manuscript description, etc. [4.2.1. ]
+  ## (heading) contains any type of heading, for example the title of a section, or the heading of a list, glossary, manuscript description, etc. [4.2.1. ]
   element head {
     (text
      | tei_lg
@@ -1989,21 +1873,19 @@ tei_head =
   }
 tei_headLabel =
   
-  ## (heading for list labels) contains the heading for the label or term column in a glossary list or similar structured
-  ##         list. [3.7. ]
+  ## (heading for list labels) contains the heading for the label or term column in a glossary list or similar structured list. [3.7. ]
   element headLabel {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_headItem =
   
-  ## (heading for list items) contains the heading for the item or gloss column in a glossary list or similar structured
-  ##         list. [3.7. ]
+  ## (heading for list items) contains the heading for the item or gloss column in a glossary list or similar structured list. [3.7. ]
   element headItem {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_note =
   
-  ## contains a note or annotation. [3.8.1.  2.2.6.  3.11.2.7.  9.3.5.4. ]
+  ## contains a note or annotation. [3.8.1.  2.2.6.  3.11.2.8.  9.3.5.4. ]
   element note {
     tei_macro.specialPara,
     tei_att.global.attributes,
@@ -2016,8 +1898,7 @@ tei_note =
     [ a:defaultValue = "true" ]
     attribute anchored { tei_data.truthValue }?,
     
-    ## points to the end of the span to which the note is attached, if the note is not embedded
-    ##         in the text at that point.
+    ## points to the end of the span to which the note is attached, if the note is not embedded in the text at that point.
     attribute targetEnd {
       list { tei_data.pointer+ }
     }?,
@@ -2031,8 +1912,7 @@ tei_index =
     tei_att.global.attributes,
     tei_att.spanning.attributes,
     
-    ## a single word which follows the rules defining a
-    ##         legal XML name (see ), supplying a name to specify which index (of several) the index entry belongs to.
+    ## a single word which follows the rules defining a legal XML name (see ), supplying a name to specify which index (of several) the index entry belongs to.
     attribute indexName { tei_data.name }?,
     empty
   }
@@ -2049,9 +1929,7 @@ tei_graphic =
   }
 tei_milestone =
   
-  ## marks a boundary point separating any kind of section of a text, typically but not
-  ##     necessarily indicating a point at which some part of a standard reference system changes, where
-  ##     the change is not represented by a structural element. [3.10.3. ]
+  ## marks a boundary point separating any kind of section of a text, typically but not necessarily indicating a point at which some part of a standard reference system changes, where the change is not represented by a structural element. [3.10.3. ]
   element milestone {
     empty,
     tei_att.global.attributes,
@@ -2064,7 +1942,7 @@ tei_milestone =
   }
 tei_pb =
   
-  ## (page break) marks the boundary between one page of a text and the next in a standard reference system. [3.10.3. ]
+  ## (page break) marks the start of a new page in a paginated document. [3.10.3. ]
   element pb {
     empty,
     tei_att.global.attributes,
@@ -2088,8 +1966,7 @@ tei_lb =
   }
 tei_cb =
   
-  ## (column break) marks the boundary between one column of a text and the next
-  ##         in a standard reference system. [3.10.3. ]
+  ## (column break) marks the beginning of a new column of a text on a multi-column page. [3.10.3. ]
   element cb {
     empty,
     tei_att.global.attributes,
@@ -2101,14 +1978,13 @@ tei_cb =
   }
 tei_analytic =
   
-  ## (analytic level) contains bibliographic elements describing an item (e.g. an article or poem) published
-  ##     within a monograph or journal and not as an independent publication. [3.11.2.1. ]
+  ## (analytic level) contains bibliographic elements describing an item (e.g. an article or poem) published within a monograph or journal and not as an independent publication. [3.11.2.1. ]
   element analytic {
     (tei_author
      | tei_editor
      | tei_respStmt
      | tei_title
-     | tei_ref
+     | tei_model.ptrLike
      | tei_date
      | tei_textLang
      | tei_idno)*,
@@ -2117,23 +1993,26 @@ tei_analytic =
   }
 tei_monogr =
   
-  ## (monographic level) contains bibliographic elements describing an item (e.g. a book or journal) published as an
-  ##     independent item (i.e. as a separate physical object). [3.11.2.1. ]
+  ## (monographic level) contains bibliographic elements describing an item (e.g. a book or journal) published as an independent item (i.e. as a separate physical object). [3.11.2.1. ]
   element monogr {
     ((((tei_author | tei_editor | tei_respStmt),
        (tei_author | tei_editor | tei_respStmt)*,
        tei_title+,
-       (tei_idno | tei_textLang | tei_editor | tei_respStmt)*)
-      | ((tei_title | tei_ref)+,
-         (tei_idno
-          | tei_textLang
-          | tei_author
-          | tei_editor
-          | tei_respStmt)*)
+       (tei_model.ptrLike
+        | tei_idno
+        | tei_textLang
+        | tei_editor
+        | tei_respStmt)*)
+      | ((tei_title | tei_model.ptrLike | tei_idno)+,
+         (tei_textLang | tei_author | tei_editor | tei_respStmt)*)
       | (tei_authority, tei_idno))?,
      tei_model.noteLike*,
      (tei_edition,
-      (tei_idno | tei_editor | tei_funder | tei_respStmt)*)*,
+      (tei_idno
+       | tei_model.ptrLike
+       | tei_editor
+       | tei_funder
+       | tei_respStmt)*)*,
      tei_imprint,
      (tei_imprint | tei_extent | tei_biblScope)*),
     tei_att.global.attributes,
@@ -2141,13 +2020,12 @@ tei_monogr =
   }
 tei_series =
   
-  ## (series information) contains information about the series in which a book or other bibliographic item has
-  ##     appeared. [3.11.2.1. ]
+  ## (series information) contains information about the series in which a book or other bibliographic item has appeared. [3.11.2.1. ]
   element series {
     (text
      | tei_model.gLike
      | tei_title
-     | tei_ref
+     | tei_model.ptrLike
      | tei_editor
      | tei_respStmt
      | tei_biblScope
@@ -2159,9 +2037,7 @@ tei_series =
   }
 tei_author =
   
-  ## in a bibliographic reference, contains the name(s) of an
-  ##   author, personal or corporate, of a work; for example in the same
-  ##   form as that provided by a recognized bibliographic name authority.  [3.11.2.2.  2.2.1. ]
+  ## in a bibliographic reference, contains the name(s) of an author, personal or corporate, of a work; for example in the same form as that provided by a recognized bibliographic name authority.  [3.11.2.2.  2.2.1. ]
   element author {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -2170,9 +2046,7 @@ tei_author =
   }
 tei_editor =
   
-  ## contains a secondary statement of responsibility for a bibliographic item, for example the name of an
-  ##     individual, institution or organization, (or of several such) acting as editor, compiler,
-  ##     translator, etc.  [3.11.2.2. ]
+  ## contains a secondary statement of responsibility for a bibliographic item, for example the name of an individual, institution or organization, (or of several such) acting as editor, compiler, translator, etc.  [3.11.2.2. ]
   element editor {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -2181,10 +2055,7 @@ tei_editor =
   }
 tei_respStmt =
   
-  ## (statement of responsibility) supplies a statement of responsibility for the intellectual content of a text, edition,
-  ##     recording, or series, where the specialized elements for authors, editors, etc. do not suffice
-  ##     or do not apply. May also be used to encode information about individuals or organizations 
-  ##     which have played a role in the production or distribution of a bibliographic work. [3.11.2.2.  2.2.1.  2.2.2.  2.2.5. ]
+  ## (statement of responsibility) supplies a statement of responsibility for the intellectual content of a text, edition, recording, or series, where the specialized elements for authors, editors, etc. do not suffice or do not apply. May also be used to encode information about individuals or organizations which have played a role in the production or distribution of a bibliographic work. [3.11.2.2.  2.2.1.  2.2.2.  2.2.5. ]
   element respStmt {
     ((tei_resp+, tei_model.nameLike.agent+)
      | (tei_model.nameLike.agent+, tei_resp+)),
@@ -2193,8 +2064,7 @@ tei_respStmt =
   }
 tei_resp =
   
-  ## (responsibility) contains a phrase describing the nature of a person's intellectual responsibility, or an organization's role 
-  ##     in the production or distribution of a work. [3.11.2.2.  2.2.1.  2.2.2.  2.2.5. ]
+  ## (responsibility) contains a phrase describing the nature of a person's intellectual responsibility, or an organization's role in the production or distribution of a work. [3.11.2.2.  2.2.1.  2.2.2.  2.2.5. ]
   element resp {
     tei_macro.phraseSeq.limited,
     tei_att.global.attributes,
@@ -2214,96 +2084,85 @@ tei_title =
     ## Sample values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] short; 5] desc(descriptive) 
     attribute type { tei_data.enumerated }?,
     
-    ## indicates the bibliographic level for a title, that is, whether
-    ##                                         it identifies an article, book, journal, series, or
-    ##                                         unpublished material.
+    ## indicates the bibliographic level for a title, that is, whether it identifies an article, book, journal, series, or unpublished material.
     attribute level {
       
-      ## (analytic) analytic title (article, poem, or other item
-      ##                                                   published as part of a larger item) 
+      ## (analytic) the title applies to an analytic item, such as an article, poem, or other work published as part of a larger item. 
       "a"
       | 
-        ## (monographic) monographic title (book, collection, or
-        ##                                                   other item published as a distinct item,
-        ##                                                   including single volumes of multi-volume
-        ##                                                   works) 
+        ## (monographic) the title applies to a monograph such as a book or other item considered to be a distinct publication, including single volumes of multi-volume works 
         "m"
       | 
-        ## (journal) journal title 
+        ## (journal) the title applies to any serial or periodical publication such as a journal, magazine, or newspaper 
         "j"
       | 
-        ## (series) series title 
+        ## (series) the title applies to a series of otherwise distinct publications such as a collection 
         "s"
       | 
-        ## (unpublished) title of unpublished material (including
-        ##                                                   theses and dissertations unless
-        ##                                                   published by a commercial press)
+        ## (unpublished) the title applies to any unpublished material (including theses and dissertations unless published by a commercial press)
         "u"
     }?,
     empty
   }
 tei_imprint =
   
-  ## groups information relating to the publication or distribution
-  ##         of a bibliographic item. [3.11.2.3. ]
+  ## groups information relating to the publication or distribution of a bibliographic item. [3.11.2.4. ]
   element imprint {
-    ((tei_model.imprintPart | tei_model.dateLike),
-     tei_respStmt*,
-     tei_model.global*)+,
+    (empty*,
+     ((tei_model.imprintPart | tei_model.dateLike),
+      tei_respStmt*,
+      tei_model.global*)+),
     tei_att.global.attributes,
     empty
   }
 tei_publisher =
   
-  ## provides the name of the organization responsible for the publication or distribution of a
-  ##         bibliographic item. [3.11.2.3.  2.2.4. ]
+  ## provides the name of the organization responsible for the publication or distribution of a bibliographic item. [3.11.2.4.  2.2.4. ]
   element publisher {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_biblScope =
   
-  ## (scope of bibliographic reference) defines the scope of a bibliographic reference, for example as a
-  ##         list of page numbers, or a named subdivision of a larger work. [3.11.2.3. ]
+  ## (scope of bibliographic reference) defines the scope of a bibliographic reference, for example as a list of page numbers, or a named subdivision of a larger work. [3.11.2.4. ]
   element biblScope {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
     
     ## identifies the unit of information conveyed by the element, e.g. columns, pages, volume.
-    ## Suggested values include: 1] vol(volume) ; 2] issue; 3] pp(pages) ; 4] ll (lines) ; 5] chap(chapter) ; 6] part
+    ## Suggested values include: 1] volume; 2] issue; 3] page; 4] line; 5] chapter; 6] part; 7] column
     attribute unit {
       
-      ## (volume) the element contains a volume number.
-      "vol"
+      ## the element contains a volume number.
+      "volume"
       | 
-        ## the element contains an issue number, or volume and
-        ##             issue numbers.
+        ## the element contains an issue number, or volume and issue numbers.
         "issue"
       | 
-        ## (pages) the element contains a page number or page range.
-        "pp"
+        ## the element contains a page number or page range.
+        "page"
       | 
-        ##  (lines) the element contains a line number or line range.
-        "ll"
+        ## the element contains a line number or line range.
+        "line"
       | 
-        ## (chapter) the element contains a chapter indication (number
-        ##             and/or title)
-        "chap"
+        ## the element contains a chapter indication (number and/or title)
+        "chapter"
       | 
         ## the element identifies a part of a book or collection.
         "part"
+      | 
+        ## the element identifies a column.
+        "column"
       | xsd:Name
     }?,
     
-    ## identifies the type of information conveyed by the element, e.g.
-    ##                 columns, pages, volume.
+    ## identifies the type of information conveyed by the element, e.g. columns, pages, volume.
     ## Suggested values include: 1] vol(volume) ; 2] issue; 3] pp(pages) ; 4] ll (lines) ; 5] chap(chapter) ; 6] part
     attribute type {
       
       ## (volume) the element contains a volume number.
       "vol"
       | 
-        ## the element contains an issue number, or volume and
-        ##                         issue numbers.
+        ## the element contains an issue number, or volume and issue numbers.
         "issue"
       | 
         ## (pages) the element contains a page number or page range.
@@ -2312,8 +2171,7 @@ tei_biblScope =
         ##  (lines) the element contains a line number or line range.
         "ll"
       | 
-        ## (chapter) the element contains a chapter indication (number
-        ##                         and/or title)
+        ## (chapter) the element contains a chapter indication (number and/or title)
         "chap"
       | 
         ## the element identifies a part of a book or collection.
@@ -2330,7 +2188,7 @@ tei_biblScope =
   }
 tei_pubPlace =
   
-  ## (publication place) contains the name of the place where a bibliographic item was published. [3.11.2.3. ]
+  ## (publication place) contains the name of the place where a bibliographic item was published. [3.11.2.4. ]
   element pubPlace {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -2339,8 +2197,7 @@ tei_pubPlace =
   }
 tei_bibl =
   
-  ## (bibliographic citation) contains a loosely-structured bibliographic citation of which the sub-components may or may
-  ##     not be explicitly tagged.  [3.11.1.  2.2.7.  15.3.2. ]
+  ## (bibliographic citation) contains a loosely-structured bibliographic citation of which the sub-components may or may not be explicitly tagged.  [3.11.1.  2.2.7.  15.3.2. ]
   element bibl {
     (text
      | tei_model.gLike
@@ -2360,8 +2217,7 @@ tei_bibl =
   }
 tei_biblStruct =
   
-  ## (structured bibliographic citation) contains a structured bibliographic citation, in which only bibliographic sub-elements
-  ##     appear and in a specified order.  [3.11.1.  2.2.7.  15.3.2. ]
+  ## (structured bibliographic citation) contains a structured bibliographic citation, in which only bibliographic sub-elements appear and in a specified order.  [3.11.1.  2.2.7.  15.3.2. ]
   element biblStruct {
     (tei_analytic*,
      (tei_monogr, tei_series*)+,
@@ -2381,7 +2237,7 @@ tei_listBibl =
   ## (citation list) contains a list of bibliographic citations of any kind.  [3.11.1.  2.2.7.  15.3.2. ]
   element listBibl {
     (tei_model.headLike*,
-     (tei_model.biblLike | tei_model.milestoneLike | tei_listBibl)+),
+     (tei_model.biblLike | tei_model.milestoneLike)+),
     tei_att.global.attributes,
     tei_att.sortable.attributes,
     tei_att.declarable.attributes,
@@ -2390,8 +2246,7 @@ tei_listBibl =
   }
 tei_relatedItem =
   
-  ## contains or references some other bibliographic item which is related to the present one in
-  ##     some specified manner, for example as a constituent or alternative version of it. [3.11.2.6. ]
+  ## contains or references some other bibliographic item which is related to the present one in some specified manner, for example as a constituent or alternative version of it. [3.11.2.7. ]
   element relatedItem {
     ((tei_model.biblLike | tei_model.ptrLike)?)
     >> sch:pattern [
@@ -2438,8 +2293,7 @@ tei_relatedItem =
     tei_att.global.attributes,
     tei_att.typed.attributes,
     
-    ## points to the related bibliographic element by means of an
-    ##       absolute or relative URI reference
+    ## points to the related bibliographic element by means of an absolute or relative URI reference
     attribute target { tei_data.pointer }?,
     empty
   }
@@ -2454,8 +2308,7 @@ tei_l =
   }
 tei_lg =
   
-  ## (line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain,
-  ##         verse paragraph, etc. [3.12.1.  3.12.  7.2.5. ]
+  ## (line group) contains one or more verse lines functioning as a formal unit, e.g. a stanza, refrain, verse paragraph, etc. [3.12.1.  3.12.  7.2.5. ]
   element lg {
     ((tei_model.divTop | tei_model.global)*,
      (tei_model.lLike
@@ -2494,76 +2347,9 @@ tei_lg =
     tei_att.declaring.attributes,
     empty
   }
-tei_sp =
-  
-  ## (speech) contains an individual speech in a performance text, or a passage presented as such in a prose or
-  ##     verse text. [3.12.2.  3.12.  7.2.2. ]
-  element sp {
-    (tei_model.global*,
-     (tei_speaker, tei_model.global*)?,
-     ((tei_lg
-       | tei_model.lLike
-       | tei_model.pLike
-       | tei_model.listLike
-       | tei_model.stageLike
-       | tei_model.qLike),
-      tei_model.global*)+),
-    tei_att.global.attributes,
-    tei_att.ascribed.attributes,
-    empty
-  }
-tei_speaker =
-  
-  ## contains a specialized form of heading or label, giving the name of one or more speakers in a
-  ##         dramatic text or fragment. [3.12.2. ]
-  element speaker {
-    tei_macro.phraseSeq, tei_att.global.attributes, empty
-  }
-tei_stage =
-  
-  ## (stage direction) contains any kind of stage direction within a dramatic text or fragment. [3.12.2.  3.12.  7.2.4. ]
-  element stage {
-    tei_macro.specialPara,
-    tei_att.global.attributes,
-    
-    ## indicates the kind of stage direction.
-    ## Suggested values include: 1] setting; 2] entrance; 3] exit; 4] business; 5] novelistic; 6] delivery; 7] modifier; 8] location; 9] mixed
-    attribute type {
-      
-      ## describes a setting.
-      "setting"
-      | 
-        ## describes an entrance.
-        "entrance"
-      | 
-        ## describes an exit.
-        "exit"
-      | 
-        ## describes stage business.
-        "business"
-      | 
-        ## is a narrative, motivating stage direction.
-        "novelistic"
-      | 
-        ## describes how a character speaks.
-        "delivery"
-      | 
-        ## gives some detail about a character.
-        "modifier"
-      | 
-        ## describes a location.
-        "location"
-      | 
-        ## more than one of the above
-        "mixed"
-      | xsd:Name
-    }?,
-    empty
-  }
 tei_textLang =
   
-  ## (text language) describes the languages and writing systems identified within the bibliographic work  
-  ##   being described, rather than its description.  [3.11.2.3.  10.6.6. ]
+  ## (text language) describes the languages and writing systems identified within the bibliographic work being described, rather than its description.  [3.11.2.4.  10.6.6. ]
   element textLang {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -2579,14 +2365,12 @@ tei_textLang =
   }
 tei_teiHeader =
   
-  ## (TEI Header) supplies the descriptive and declarative information making up an electronic title page
-  ##     prefixed to every TEI-conformant text. [2.1.1.  15.1. ]
+  ## (TEI header) supplies the descriptive and declarative information making up an electronic title page prefixed to every TEI-conformant text. [2.1.1.  15.1. ]
   element teiHeader {
     (tei_fileDesc, tei_model.teiHeaderPart*, tei_revisionDesc?),
     tei_att.global.attributes,
     
-    ## specifies the kind of document to which the header is attached, for example whether it
-    ##         is a corpus or individual text.
+    ## specifies the kind of document to which the header is attached, for example whether it is a corpus or individual text.
     ## Sample values include: 1] text; 2] corpus
     [ a:defaultValue = "text" ] attribute type { tei_data.enumerated }?,
     empty
@@ -2613,8 +2397,7 @@ tei_titleStmt =
   }
 tei_funder =
   
-  ## (funding body) specifies the name of an individual, institution, or organization responsible for the
-  ##     funding of a project or text. [2.2.1. ]
+  ## (funding body) specifies the name of an individual, institution, or organization responsible for the funding of a project or text. [2.2.1. ]
   element funder {
     tei_macro.phraseSeq.limited, tei_att.global.attributes, empty
   }
@@ -2634,14 +2417,13 @@ tei_edition =
   }
 tei_extent =
   
-  ## describes the approximate size of a text stored on some carrier medium or of some other object, digital  or non-digital,  specified in any convenient units. [2.2.3.  2.2.  3.11.2.3.  10.7.1. ]
+  ## describes the approximate size of a text stored on some carrier medium or of some other object, digital or non-digital, specified in any convenient units. [2.2.3.  2.2.  3.11.2.4.  10.7.1. ]
   element extent {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_publicationStmt =
   
-  ## (publication statement) groups information concerning the publication or distribution of an electronic or other
-  ##     text.  [2.2.4.  2.2. ]
+  ## (publication statement) groups information concerning the publication or distribution of an electronic or other text.  [2.2.4.  2.2. ]
   element publicationStmt {
     (tei_model.pLike+ | tei_model.publicationStmtPart+),
     tei_att.global.attributes,
@@ -2649,38 +2431,31 @@ tei_publicationStmt =
   }
 tei_distributor =
   
-  ## supplies the name of a person or other agency responsible for the
-  ## distribution of a text. [2.2.4. ]
+  ## supplies the name of a person or other agency responsible for the distribution of a text. [2.2.4. ]
   element distributor {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_authority =
   
-  ## (release authority) supplies the name of a person or other agency responsible for
-  ##   making a work available, other than a publisher or
-  ##   distributor. [2.2.4. ]
+  ## (release authority) supplies the name of a person or other agency responsible for making a work available, other than a publisher or distributor. [2.2.4. ]
   element authority {
     tei_macro.phraseSeq.limited, tei_att.global.attributes, empty
   }
 tei_idno =
   
-  ## (identifier) supplies any form of identifier used to identify some object,
-  ##   such as a bibliographic item, a person, a title, an organization,
-  ##   etc. in a standardized way. [2.2.4.  2.2.5.  3.11.2.3. ]
+  ## (identifier) supplies any form of identifier used to identify some object, such as a bibliographic item, a person, a title, an organization, etc. in a standardized way. [2.2.4.  2.2.5.  3.11.2.4. ]
   element idno {
     (text | tei_model.gLike | tei_idno)*,
     tei_att.global.attributes,
     tei_att.sortable.attributes,
     
-    ## categorizes the identifier, for example as an ISBN, Social
-    ##       Security number, etc. 
+    ## categorizes the identifier, for example as an ISBN, Social Security number, etc. 
     attribute type { tei_data.enumerated }?,
     empty
   }
 tei_availability =
   
-  ## supplies information about the availability of a text, for example any restrictions on its
-  ##     use or distribution, its copyright status, any licence applying to it, etc. [2.2.4. ]
+  ## supplies information about the availability of a text, for example any restrictions on its use or distribution, its copyright status, any licence applying to it, etc. [2.2.4. ]
   element availability {
     (tei_model.availabilityPart | tei_model.pLike)+,
     tei_att.global.attributes,
@@ -2703,8 +2478,7 @@ tei_availability =
   }
 tei_licence =
   
-  ## contains information about a licence or other legal agreement
-  ##   applicable to the text. [2.2.4. ]
+  ## contains information about a licence or other legal agreement applicable to the text. [2.2.4. ]
   element licence {
     tei_macro.specialPara,
     tei_att.global.attributes,
@@ -2725,16 +2499,15 @@ tei_seriesStmt =
   }
 tei_notesStmt =
   
-  ## (notes statement) collects together any notes providing information about a text additional to that recorded
-  ##     in other parts of the bibliographic description. [2.2.6.  2.2. ]
+  ## (notes statement) collects together any notes providing information about a text additional to that recorded in other parts of the bibliographic description. [2.2.6.  2.2. ]
   element notesStmt {
-    tei_model.noteLike+, tei_att.global.attributes, empty
+    (tei_model.noteLike | tei_relatedItem)+,
+    tei_att.global.attributes,
+    empty
   }
 tei_sourceDesc =
   
-  ## (source description) describes the source from which an electronic text was derived or generated, typically a
-  ##     bibliographic description in the case of a digitized text, or a phrase such as "born digital"
-  ##     for a text which has no previous existence. [2.2.7. ]
+  ## (source description) describes the source from which an electronic text was derived or generated, typically a bibliographic description in the case of a digitized text, or a phrase such as "born digital" for a text which has no previous existence. [2.2.7. ]
   element sourceDesc {
     (tei_model.pLike+
      | (tei_model.biblLike
@@ -2746,8 +2519,7 @@ tei_sourceDesc =
   }
 tei_encodingDesc =
   
-  ## (encoding description) documents the relationship between an electronic text and the
-  ## source or sources from which it was derived. [2.3.  2.1.1. ]
+  ## (encoding description) documents the relationship between an electronic text and the source or sources from which it was derived. [2.3.  2.1.1. ]
   element encodingDesc {
     (tei_model.encodingDescPart | tei_model.pLike)+,
     tei_att.global.attributes,
@@ -2755,9 +2527,7 @@ tei_encodingDesc =
   }
 tei_projectDesc =
   
-  ## (project description) describes in detail the aim or purpose for which an electronic file was encoded, together
-  ##     with any other relevant information concerning the process by which it was assembled or
-  ##     collected. [2.3.1.  2.3.  15.3.2. ]
+  ## (project description) describes in detail the aim or purpose for which an electronic file was encoded, together with any other relevant information concerning the process by which it was assembled or collected. [2.3.1.  2.3.  15.3.2. ]
   element projectDesc {
     tei_model.pLike+,
     tei_att.global.attributes,
@@ -2766,8 +2536,7 @@ tei_projectDesc =
   }
 tei_editorialDecl =
   
-  ## (editorial practice declaration) provides details of editorial principles and practices applied
-  ## during the encoding of a text. [2.3.3.  2.3.  15.3.2. ]
+  ## (editorial practice declaration) provides details of editorial principles and practices applied during the encoding of a text. [2.3.3.  2.3.  15.3.2. ]
   element editorialDecl {
     (tei_model.pLike | tei_model.editorialDeclPart)+,
     tei_att.global.attributes,
@@ -2817,14 +2586,35 @@ tei_quotation =
     }?,
     
     ## specifies how quotation marks are indicated within the text.
-    [ a:defaultValue = "unknown" ] attribute form { text }?,
+    [ a:defaultValue = "unknown" ]
+    attribute form { tei_data.enumerated }?,
+    empty
+  }
+tei_appInfo =
+  
+  ## (application information) records information about an application which has edited the TEI file.  [2.3.10. ]
+  element appInfo {
+    tei_model.applicationLike+, tei_att.global.attributes, empty
+  }
+tei_application =
+  
+  ## provides information about an application which has acted upon the document. [2.3.10. ]
+  element application {
+    (tei_model.labelLike+, (tei_model.ptrLike* | tei_model.pLike*)),
+    tei_att.global.attributes,
+    tei_att.typed.attributes,
+    tei_att.datable.attributes,
+    
+    ## supplies an identifier for the application, independent of its version number or display name.
+    attribute ident { tei_data.name },
+    
+    ## supplies a version number for the application, independent of its identifier or display name.
+    attribute version { tei_data.versionNumber },
     empty
   }
 tei_profileDesc =
   
-  ## (text-profile description) provides a detailed description of non-bibliographic aspects of a text, specifically the
-  ##     languages and sublanguages used, the situation in which it was produced, the participants and
-  ##     their setting. [2.4.  2.1.1. ]
+  ## (text-profile description) provides a detailed description of non-bibliographic aspects of a text, specifically the languages and sublanguages used, the situation in which it was produced, the participants and their setting. [2.4.  2.1.1. ]
   element profileDesc {
     tei_model.profileDescPart*, tei_att.global.attributes, empty
   }
@@ -2848,8 +2638,7 @@ tei_creation =
   }
 tei_langUsage =
   
-  ## (language usage) describes the languages, sublanguages, registers, dialects, etc.
-  ## represented within a text. [2.4.2.  2.4.  15.3.2. ]
+  ## (language usage) describes the languages, sublanguages, registers, dialects, etc. represented within a text. [2.4.2.  2.4.  15.3.2. ]
   element langUsage {
     tei_language+,
     tei_att.global.attributes,
@@ -2863,9 +2652,7 @@ tei_language =
     tei_macro.phraseSeq.limited,
     tei_att.global.attributes,
     
-    ## (identifier) Supplies a language code constructed as defined in BCP 47 which is used to identify the
-    ##         language documented by this element, and which is referenced by the global
-    ##         xml:lang attribute.
+    ## (identifier) Supplies a language code constructed as defined in BCP 47 which is used to identify the language documented by this element, and which is referenced by the global xml:lang attribute.
     attribute ident { tei_data.language },
     
     ## specifies the approximate percentage (by volume) of the text which uses this language. 
@@ -2876,8 +2663,7 @@ tei_language =
   }
 tei_textClass =
   
-  ## (text classification) groups information which describes the nature or topic of a text in terms of a standard
-  ##     classification scheme, thesaurus, etc. [2.4.3. ]
+  ## (text classification) groups information which describes the nature or topic of a text in terms of a standard classification scheme, thesaurus, etc. [2.4.3. ]
   element textClass {
     (tei_keywords)*,
     tei_att.global.attributes,
@@ -2891,8 +2677,7 @@ tei_keywords =
     (tei_term+ | tei_list),
     tei_att.global.attributes,
     
-    ## identifies the controlled vocabulary within which the set of keywords concerned is
-    ##         defined. 
+    ## identifies the controlled vocabulary within which the set of keywords concerned is defined. 
     attribute scheme { tei_data.pointer }?,
     empty
   }
@@ -2907,8 +2692,7 @@ tei_revisionDesc =
   }
 tei_change =
   
-  ## documents a change or set of changes made during the production
-  ##   of a source document, or during the revision of an electronic file. [2.5.  2.4.1. ]
+  ## documents a change or set of changes made during the production of a source document, or during the revision of an electronic file. [2.5.  2.4.1. ]
   element change {
     tei_macro.specialPara,
     tei_att.ascribed.attributes,
@@ -2925,9 +2709,7 @@ tei_change =
   }
 tei_TEI =
   
-  ## (TEI document) contains a single TEI-conformant document,
-  ## comprising a TEI header and a text, either in isolation or as part of a
-  ## teiCorpus element. [4.  15.1. ]
+  ## (TEI document) contains a single TEI-conformant document, comprising a TEI header and a text, either in isolation or as part of a teiCorpus element. [4.  15.1. ]
   element TEI {
     (tei_teiHeader,
      ((tei_model.resourceLike+, tei_text?) | tei_text))
@@ -2938,15 +2720,13 @@ tei_TEI =
        ],
     tei_att.global.attributes,
     
-    ## specifies the major version number of the TEI Guidelines against
-    ##       which this document is valid.
+    ## specifies the major version number of the TEI Guidelines against which this document is valid.
     attribute version { tei_data.version }?,
     empty
   }
 tei_text =
   
-  ## contains a single text of any kind, whether unitary or composite, for example a poem or
-  ##     drama, a collection of essays, a novel, a dictionary, or a corpus sample. [4.  15.1. ]
+  ## contains a single text of any kind, whether unitary or composite, for example a poem or drama, a collection of essays, a novel, a dictionary, or a corpus sample. [4.  15.1. ]
   element text {
     (tei_model.global*,
      tei_model.global*,
@@ -2981,8 +2761,7 @@ tei_body =
   }
 tei_floatingText =
   
-  ## contains a single text of any kind, whether unitary or composite, which interrupts the text
-  ##     containing it at any point and after which the surrounding text resumes. [4.3.2. ]
+  ## contains a single text of any kind, whether unitary or composite, which interrupts the text containing it at any point and after which the surrounding text resumes. [4.3.2. ]
   element floatingText {
     (tei_model.global*,
      tei_model.global*,
@@ -3012,8 +2791,7 @@ tei_div =
   }
 tei_byline =
   
-  ## contains the primary statement of responsibility given for a work
-  ## on its title page or at the head or end of the work. [4.2.2.  4.5. ]
+  ## contains the primary statement of responsibility given for a work on its title page or at the head or end of the work. [4.2.2.  4.5. ]
   element byline {
     (text | tei_model.gLike | tei_model.phrase | tei_model.global)*,
     tei_att.global.attributes,
@@ -3021,15 +2799,13 @@ tei_byline =
   }
 tei_dateline =
   
-  ## contains a brief description of the place, date, time, etc. of production of a letter,
-  ##     newspaper story, or other work, prefixed or suffixed to it as a kind of heading or trailer.  [4.2.2. ]
+  ## contains a brief description of the place, date, time, etc. of production of a letter, newspaper story, or other work, prefixed or suffixed to it as a kind of heading or trailer.  [4.2.2. ]
   element dateline {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_opener =
   
-  ## groups together dateline, byline, salutation, and similar phrases appearing as a preliminary
-  ##     group at the start of a division, especially of a letter. [4.2. ]
+  ## groups together dateline, byline, salutation, and similar phrases appearing as a preliminary group at the start of a division, especially of a letter. [4.2. ]
   element opener {
     (text
      | tei_model.gLike
@@ -3044,8 +2820,7 @@ tei_opener =
   }
 tei_closer =
   
-  ## groups together salutations, datelines, and similar phrases appearing as a final group at
-  ##     the end of a division, especially of a letter. [4.2.2.  4.2. ]
+  ## groups together salutations, datelines, and similar phrases appearing as a final group at the end of a division, especially of a letter. [4.2.2.  4.2. ]
   element closer {
     (text
      | tei_model.gLike
@@ -3059,15 +2834,13 @@ tei_closer =
   }
 tei_salute =
   
-  ## (salutation) contains a salutation or greeting prefixed to a foreword, dedicatory epistle, or other
-  ##     division of a text, or the salutation in the closing of a letter, preface, etc. [4.2.2. ]
+  ## (salutation) contains a salutation or greeting prefixed to a foreword, dedicatory epistle, or other division of a text, or the salutation in the closing of a letter, preface, etc. [4.2.2. ]
   element salute {
     tei_macro.phraseSeq, tei_att.global.attributes, empty
   }
 tei_signed =
   
-  ## (signature) contains the closing salutation, etc., appended to a foreword,
-  ## dedicatory epistle, or other division of a text.  [4.2.2. ]
+  ## (signature) contains the closing salutation, etc., appended to a foreword, dedicatory epistle, or other division of a text.  [4.2.2. ]
   element signed {
     tei_macro.paraContent, tei_att.global.attributes, empty
   }
@@ -3082,66 +2855,15 @@ tei_postscript =
     tei_att.global.attributes,
     empty
   }
-tei_titlePage =
-  
-  ## (title page) contains the title page of a text, appearing within the front or back matter.  [4.6. ]
-  element titlePage {
-    (tei_model.global*,
-     tei_model.titlepagePart,
-     (tei_model.titlepagePart | tei_model.global)*),
-    tei_att.global.attributes,
-    
-    ## classifies the title page according to any convenient typology.
-    attribute type { tei_data.enumerated }?,
-    empty
-  }
-tei_titlePart =
-  
-  ## contains a subsection or division of the title of a work, as
-  ## indicated on a title page. [4.6. ]
-  element titlePart {
-    tei_macro.paraContent,
-    tei_att.global.attributes,
-    
-    ## specifies the role of this subdivision of the title.
-    ## Suggested values include: 1] main; 2] sub(subordinate) ; 3] alt(alternate) ; 4] short; 5] desc(descriptive) 
-    [ a:defaultValue = "main" ]
-    attribute type {
-      
-      ## main title of the work
-      ##         
-      "main"
-      | 
-        ## (subordinate) subtitle  of the work
-        ##         
-        "sub"
-      | 
-        ## (alternate) alternative title  of the work
-        ##         
-        "alt"
-      | 
-        ## abbreviated form of title
-        "short"
-      | 
-        ## (descriptive) descriptive paraphrase of the work 
-        ##    
-        "desc"
-      | xsd:Name
-    }?,
-    empty
-  }
-tei_imprimatur =
-  
-  ## contains a formal statement authorizing the publication of a work, sometimes required to
-  ##     appear on a title page or its verso. [4.6. ]
-  element imprimatur {
-    tei_macro.paraContent, tei_att.global.attributes, empty
-  }
 tei_back =
   
   ## (back matter) contains any appendixes, etc. following the main part of a text. [4.7.  4. ]
   element back {
-    ((tei_model.frontPart | tei_model.pLike.front | tei_model.global)*,
+    ((tei_model.frontPart
+      | tei_model.pLike.front
+      | tei_model.pLike
+      | tei_model.listLike
+      | tei_model.global)*,
      ((tei_model.div1Like,
        (tei_model.frontPart | tei_model.div1Like | tei_model.global)*)
       | (tei_model.divLike,
@@ -3240,9 +2962,7 @@ tei_orgName =
   }
 tei_persName =
   
-  ## (personal name) contains a proper noun or proper-noun phrase referring to a
-  ##   person, possibly including one or more of
-  ##   the person's forenames, surnames, honorifics, added names, etc. [13.2.1. ]
+  ## (personal name) contains a proper noun or proper-noun phrase referring to a person, possibly including one or more of the person's forenames, surnames, honorifics, added names, etc. [13.2.1. ]
   element persName {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -3266,8 +2986,7 @@ tei_placeName =
   }
 tei_country =
   
-  ## (country) contains the name of a geo-political unit, such as a nation, country, colony, or
-  ##     commonwealth, larger than or administratively superior to a region and smaller than a bloc. [13.2.3. ]
+  ## (country) contains the name of a geo-political unit, such as a nation, country, colony, or commonwealth, larger than or administratively superior to a region and smaller than a bloc. [13.2.3. ]
   element country {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -3278,8 +2997,7 @@ tei_country =
   }
 tei_region =
   
-  ## contains the name of an administrative unit such as a state, province, or county, larger
-  ##     than a settlement, but smaller than a country. [13.2.3. ]
+  ## contains the name of an administrative unit such as a state, province, or county, larger than a settlement, but smaller than a country. [13.2.3. ]
   element region {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -3309,6 +3027,68 @@ tei_geogName =
     tei_att.global.attributes,
     tei_att.naming.attributes,
     tei_att.typed.attributes,
+    empty
+  }
+tei_listPerson =
+  
+  ## (list of persons) contains a list of descriptions, each of which provides information about an identifiable person or a group of people, for example the participants in a language interaction, or the people referred to in a historical source.  [13.3.2.  15.2.  2.4.  15.3.2. ]
+  element listPerson {
+    (tei_model.headLike*,
+     (tei_model.personLike | tei_listPerson)+,
+     empty*),
+    tei_att.global.attributes,
+    tei_att.typed.attributes,
+    tei_att.declarable.attributes,
+    tei_att.sortable.attributes,
+    empty
+  }
+tei_person =
+  
+  ## provides information about an identifiable individual, for example a participant in a language interaction, or a person referred to in a historical source. [13.3.2.  15.2.2. ]
+  element person {
+    (tei_model.pLike+ | (tei_model.personPart | tei_model.global)*),
+    tei_att.global.attributes,
+    tei_att.editLike.attributes,
+    tei_att.sortable.attributes,
+    
+    ## specifies a primary role or classification for the person.
+    attribute role {
+      list { tei_data.enumerated+ }
+    }?,
+    
+    ## specifies the sex of the person.
+    attribute sex {
+      list { tei_data.sex+ }
+    }?,
+    
+    ## specifies an age group for the person.
+    attribute age { tei_data.enumerated }?,
+    empty
+  }
+tei_residence =
+  
+  ## (residence) describes a person's present or past places of residence. [15.2.2. ]
+  element residence {
+    tei_macro.phraseSeq,
+    tei_att.global.attributes,
+    tei_att.datable.attributes,
+    tei_att.editLike.attributes,
+    tei_att.naming.attributes,
+    empty
+  }
+tei_sex =
+  
+  ## specifies the sex of a person. [13.3.2.1. ]
+  element sex {
+    tei_macro.phraseSeq,
+    tei_att.global.attributes,
+    tei_att.editLike.attributes,
+    tei_att.datable.attributes,
+    
+    ## supplies a coded value for sex
+    attribute value {
+      list { tei_data.sex+ }
+    }?,
     empty
   }
 tei_table =
@@ -3341,22 +3121,21 @@ tei_cell =
   
   ## contains one cell of a table.  [14.1.1. ]
   element cell {
-    tei_macro.paraContent,
+    tei_macro.specialPara,
     tei_att.global.attributes,
     tei_att.tableDecoration.attributes,
     empty
   }
 tei_figure =
   
-  ## groups elements representing or containing graphic information
-  ##   such as an illustration, formula,  or    figure. [14.4. ]
+  ## groups elements representing or containing graphic information such as an illustration, formula, or figure. [14.4. ]
   element figure {
     (tei_model.headLike
      | tei_model.common
      | tei_figDesc
      | tei_model.graphicLike
      | tei_model.global
-     | tei_model.divBottomPart)*,
+     | tei_model.divBottom)*,
     tei_att.global.attributes,
     tei_att.placement.attributes,
     tei_att.typed.attributes,
@@ -3364,9 +3143,7 @@ tei_figure =
   }
 tei_figDesc =
   
-  ## (description of figure) contains a brief prose description of the appearance or content
-  ## of a graphic figure, for use when documenting an image without
-  ## displaying it. [14.4. ]
+  ## (description of figure) contains a brief prose description of the appearance or content of a graphic figure, for use when documenting an image without displaying it. [14.4. ]
   element figDesc {
     tei_macro.limitedContent, tei_att.global.attributes, empty
   }
@@ -3381,16 +3158,13 @@ tei_att.global.change.attributes =
   tei_att.global.change.attribute.change
 tei_att.global.change.attribute.change =
   
-  ## points to one or more change elements documenting
-  ##       a state or revision campaign to which the element bearing this
-  ##       attribute and its children have been assigned by the encoder.
+  ## points to one or more change elements documenting a state or revision campaign to which the element bearing this attribute and its children have been assigned by the encoder.
   attribute change {
     list { tei_data.pointer+ }
   }?
 tei_facsimile =
   
-  ## contains a representation of some written source in the form of
-  ## a set of images rather than as transcribed or encoded text. [11.1. ]
+  ## contains a representation of some written source in the form of a set of images rather than as transcribed or encoded text. [11.1. ]
   element facsimile {
     ((tei_model.graphicLike)+, tei_back?),
     tei_att.global.attributes,
@@ -3399,8 +3173,7 @@ tei_facsimile =
   }
 tei_addSpan =
   
-  ## (added span of text) marks the beginning of a longer sequence of text added by an
-  ##   author, scribe, annotator or corrector (see also add). [11.3.1.4. ]
+  ## (added span of text) marks the beginning of a longer sequence of text added by an author, scribe, annotator or corrector (see also add). [11.3.1.4. ]
   element addSpan {
     empty
     >> sch:pattern [
@@ -3460,8 +3233,7 @@ tei_damage =
   }
 tei_damageSpan =
   
-  ## (damaged span of text) marks the beginning of a longer sequence of text which is
-  ##   damaged in some way but still legible. [11.3.3.1. ]
+  ## (damaged span of text) marks the beginning of a longer sequence of text which is damaged in some way but still legible. [11.3.3.1. ]
   element damageSpan {
     empty
     >> sch:pattern [
@@ -3511,9 +3283,7 @@ tei_damageSpan =
   }
 tei_delSpan =
   
-  ## (deleted span of text) marks the beginning of a longer sequence of text deleted,
-  ## marked as deleted, or otherwise signaled as superfluous or spurious by an
-  ## author, scribe, annotator, or corrector. [11.3.1.4. ]
+  ## (deleted span of text) marks the beginning of a longer sequence of text deleted, marked as deleted, or otherwise signaled as superfluous or spurious by an author, scribe, annotator, or corrector. [11.3.1.4. ]
   element delSpan {
     empty
     >> sch:pattern [
@@ -3562,8 +3332,7 @@ tei_delSpan =
   }
 tei_ex =
   
-  ## (editorial expansion) contains a sequence of letters added by an editor or
-  ##   transcriber when expanding an abbreviation. [11.3.1.2. ]
+  ## (editorial expansion) contains a sequence of letters added by an editor or transcriber when expanding an abbreviation. [11.3.1.2. ]
   element ex {
     tei_macro.xtext,
     tei_att.global.attributes,
@@ -3572,13 +3341,11 @@ tei_ex =
   }
 tei_handNotes =
   
-  ## contains one or more handNote elements documenting the
-  ## different hands identified within the source texts. [11.3.2.1. ]
+  ## contains one or more handNote elements documenting the different hands identified within the source texts. [11.3.2.1. ]
   element handNotes { tei_handNote+, tei_att.global.attributes, empty }
 tei_handShift =
   
-  ## marks the beginning of a sequence of text written in a new
-  ## hand, or the beginning of a scribal stint. [11.3.2.1. ]
+  ## marks the beginning of a sequence of text written in a new hand, or the beginning of a scribal stint. [11.3.2.1. ]
   element handShift {
     empty,
     tei_att.global.attributes,
@@ -3607,15 +3374,13 @@ tei_space =
         "vertical"
     }?,
     
-    ## (responsible party) indicates the individual responsible for identifying and measuring
-    ## the space.
+    ## (responsible party) indicates the individual responsible for identifying and measuring the space.
     attribute resp { tei_data.pointer }?,
     empty
   }
 tei_subst =
   
-  ## (substitution) groups one or more deletions with one or more additions when
-  ##   the combination is to be regarded as a single intervention in the text.
+  ## (substitution) groups one or more deletions with one or more additions when the combination is to be regarded as a single intervention in the text. [11.3.1.5. ]
   element subst {
     ((tei_add | tei_del | tei_model.milestoneLike)+)
     >> sch:pattern [
@@ -3645,9 +3410,7 @@ tei_subst =
   }
 tei_supplied =
   
-  ## signifies text supplied by the transcriber or editor for any
-  ##   reason, typically because the original cannot be read because of
-  ##   physical damage or loss to the original. [11.3.3.1. ]
+  ## signifies text supplied by the transcriber or editor for any reason, typically because the original cannot be read because of physical damage or loss to the original. [11.3.3.1. ]
   element supplied {
     tei_macro.paraContent,
     tei_att.global.attributes,
@@ -3661,17 +3424,14 @@ tei_supplied =
   }
 tei_redo =
   
-  ## indicates one or more cancelled interventions in a
-  ##		  document which have subsequently been
-  ##		  marked as reaffirmed or repeated.
+  ## indicates one or more cancelled interventions in a document which have subsequently been marked as reaffirmed or repeated. [11.3.4.4. ]
   element redo {
     empty,
     tei_att.global.attributes,
     tei_att.spanning.attributes,
     tei_att.transcriptional.attributes,
     
-    ## points to one or more elements representing the
-    ##	 interventions which are being reasserted.
+    ## points to one or more elements representing the interventions which are being reasserted.
     attribute target {
       list { tei_data.pointer+ }
     }?,
@@ -3680,14 +3440,12 @@ tei_redo =
 tei_att.msExcerpt.attributes = tei_att.msExcerpt.attribute.defective
 tei_att.msExcerpt.attribute.defective =
   
-  ## indicates whether the passage being quoted is defective,
-  ##       i.e. incomplete through loss or damage.
+  ## indicates whether the passage being quoted is defective, i.e. incomplete through loss or damage.
   [ a:defaultValue = "false" ]
   attribute defective { tei_data.xTruthValue }?
 tei_msDesc =
   
-  ## (manuscript description) contains a description of a single identifiable
-  ## manuscript or other text-bearing object. [10.1. ]
+  ## (manuscript description) contains a description of a single identifiable manuscript or other text-bearing object. [10.1. ]
   element msDesc {
     (tei_msIdentifier,
      tei_model.headLike*,
@@ -3700,8 +3458,7 @@ tei_msDesc =
   }
 tei_msIdentifier =
   
-  ## (manuscript identifier) contains the information required to identify
-  ## the  manuscript being described.  [10.4. ]
+  ## (manuscript identifier) contains the information required to identify the manuscript being described.  [10.4. ]
   element msIdentifier {
     ((tei_model.placeNamePart_sequenceOptional,
       tei_institution?,
@@ -3719,12 +3476,8 @@ tei_msIdentifier =
            "               "
            sch:report [
              test =
-               "local-name(*[1])='idno' or                              local-name(*[1])='altIdentifier' or        .='' "
-             "\x{a}" ~
-             "You must supply either a locator of some type or a name for "
-             sch:name [ ]
-             "\x{a}" ~
-             "               "
+               "not(parent::tei:msPart) and       (local-name(*[1])='idno' or       local-name(*[1])='altIdentifier' or       normalize-space(.)='')"
+             "An msIdentifier must contain either a repository or location of some type, or a manuscript name"
            ]
            "\x{a}" ~
            "            "
@@ -3737,9 +3490,7 @@ tei_msIdentifier =
   }
 tei_institution =
   
-  ## contains the name of an organization such as a university or
-  ##   library, with which a manuscript is identified, generally its
-  ##   holding institution. [10.4. ]
+  ## contains the name of an organization such as a university or library, with which a manuscript is identified, generally its holding institution. [10.4. ]
   element institution {
     tei_macro.xtext,
     tei_att.global.attributes,
@@ -3757,8 +3508,7 @@ tei_repository =
   }
 tei_collection =
   
-  ## contains the name of a collection of
-  ## manuscripts, not necessarily located within a single repository.  [10.4. ]
+  ## contains the name of a collection of manuscripts, not necessarily located within a single repository.  [10.4. ]
   element collection {
     tei_macro.xtext,
     tei_att.global.attributes,
@@ -3768,8 +3518,7 @@ tei_collection =
   }
 tei_altIdentifier =
   
-  ## (alternative identifier) contains an alternative or former structured identifier used for
-  ## a manuscript, such as a former catalogue number. [10.4. ]
+  ## (alternative identifier) contains an alternative or former structured identifier used for a manuscript, such as a former catalogue number. [10.4. ]
   element altIdentifier {
     (tei_model.placeNamePart_sequenceOptional,
      tei_institution?,
@@ -3783,7 +3532,7 @@ tei_altIdentifier =
   }
 tei_incipit =
   
-  ## contains the incipit of a manuscript item, that is the opening words of the text proper, exclusive of any rubric which might precede it, of sufficient length to identify the work uniquely; such incipts were, in fomer times, frequently used a means of reference to a work, in place of a title. [10.6.1. ]
+  ## contains the incipit of a manuscript item, that is the opening words of the text proper, exclusive of any rubric which might precede it, of sufficient length to identify the work uniquely; such incipits were, in former times, frequently used a means of reference to a work, in place of a title. [10.6.1. ]
   element incipit {
     tei_macro.phraseSeq,
     tei_att.global.attributes,
@@ -3793,9 +3542,7 @@ tei_incipit =
   }
 tei_physDesc =
   
-  ## (physical description) contains a full physical description of a
-  ## manuscript or manuscript part, optionally subdivided using more
-  ## specialized elements from the model.physDescPart class. [10.7. ]
+  ## (physical description) contains a full physical description of a manuscript or manuscript part, optionally subdivided using more specialized elements from the model.physDescPart class. [10.7. ]
   element physDesc {
     (tei_model.pLike*, tei_model.physDescPart_sequenceOptional),
     tei_att.global.attributes,
@@ -3803,7 +3550,7 @@ tei_physDesc =
   }
 tei_handDesc =
   
-  ## (description of hands) contains a description of all the different kinds of writing  used in a manuscript. [10.7.2. ]
+  ## (description of hands) contains a description of all the different kinds of writing used in a manuscript. [10.7.2. ]
   element handDesc {
     (tei_model.pLike+ | tei_handNote+),
     tei_att.global.attributes,
@@ -3814,8 +3561,7 @@ tei_handDesc =
   }
 tei_history =
   
-  ##  groups elements
-  ## describing the full history of a manuscript or manuscript part. [10.8. ]
+  ## groups elements describing the full history of a manuscript or manuscript part. [10.8. ]
   element history {
     (tei_model.pLike+
      | (tei_origin?, tei_provenance*, tei_acquisition?)),
@@ -3824,8 +3570,7 @@ tei_history =
   }
 tei_origin =
   
-  ## contains any descriptive or other information
-  ## concerning the origin of  a manuscript or manuscript part.  [10.8. ]
+  ## contains any descriptive or other information concerning the origin of a manuscript or manuscript part.  [10.8. ]
   element origin {
     tei_macro.specialPara,
     tei_att.global.attributes,
@@ -3835,9 +3580,7 @@ tei_origin =
   }
 tei_provenance =
   
-  ## contains any descriptive or other information
-  ## concerning a single identifiable episode during the history of a manuscript
-  ## or manuscript part, after its creation but before its acquisition.  [10.8. ]
+  ## contains any descriptive or other information concerning a single identifiable episode during the history of a manuscript or manuscript part, after its creation but before its acquisition.  [10.8. ]
   element provenance {
     tei_macro.specialPara,
     tei_att.global.attributes,
@@ -3848,9 +3591,7 @@ tei_provenance =
   }
 tei_acquisition =
   
-  ## contains any descriptive or other information
-  ## concerning the process by which a manuscript or manuscript part entered the holding
-  ## institution.  [10.8. ]
+  ## contains any descriptive or other information concerning the process by which a manuscript or manuscript part entered the holding institution.  [10.8. ]
   element acquisition {
     tei_macro.specialPara,
     tei_att.global.attributes,
@@ -3859,14 +3600,11 @@ tei_acquisition =
   }
 tei_additional =
   
-  ## groups additional information, combining
-  ## bibliographic information about a manuscript, or surrogate copies of
-  ## it with  curatorial or administrative information.  [10.9. ]
+  ## groups additional information, combining bibliographic information about a manuscript, or surrogate copies of it with curatorial or administrative information.  [10.9. ]
   element additional { tei_listBibl?, tei_att.global.attributes, empty }
 tei_msPart =
   
-  ## (manuscript part) contains information about an originally
-  ## distinct manuscript or part of a manuscript, now forming part of a composite manuscript. [10.10. ]
+  ## (manuscript part) contains information about an originally distinct manuscript or part of a manuscript, now forming part of a composite manuscript. [10.10. ]
   element msPart {
     ((tei_altIdentifier | tei_msIdentifier),
      tei_model.headLike*,
@@ -3886,52 +3624,41 @@ tei_att.global.linking.attributes =
   tei_att.global.linking.attribute.select
 tei_att.global.linking.attribute.corresp =
   
-  ## (corresponds) points to elements that correspond to the current
-  ##       element in some way.
+  ## (corresponds) points to elements that correspond to the current element in some way.
   attribute corresp {
     list { tei_data.pointer+ }
   }?
 tei_att.global.linking.attribute.synch =
   
-  ## (synchronous) points to elements that are synchronous with the current
-  ##       element.
+  ## (synchronous) points to elements that are synchronous with the current element.
   attribute synch {
     list { tei_data.pointer+ }
   }?
 tei_att.global.linking.attribute.sameAs =
   
-  ## points to an element that is the same as the current
-  ##       element.
+  ## points to an element that is the same as the current element.
   attribute sameAs { tei_data.pointer }?
 tei_att.global.linking.attribute.copyOf =
   
-  ## points to an element of which the current element is a
-  ##	copy.
+  ## points to an element of which the current element is a copy.
   attribute copyOf { tei_data.pointer }?
 tei_att.global.linking.attribute.next =
   
-  ## points to the next element of a virtual aggregate of which
-  ##       the current element is part.
+  ## points to the next element of a virtual aggregate of which the current element is part.
   attribute next { tei_data.pointer }?
 tei_att.global.linking.attribute.prev =
   
-  ## (previous) points to the previous element of a virtual aggregate of
-  ##       which the current element is part.
+  ## (previous) points to the previous element of a virtual aggregate of which the current element is part.
   attribute prev { tei_data.pointer }?
 tei_att.global.linking.attribute.exclude =
   
-  ## points to elements that are in exclusive alternation
-  ##       with the current element.
+  ## points to elements that are in exclusive alternation with the current element.
   attribute exclude {
     list { tei_data.pointer+ }
   }?
 tei_att.global.linking.attribute.select =
   
-  ## selects one or more alternants; if one alternant is
-  ##       selected, the ambiguity or uncertainty is marked as resolved. If
-  ##       more than one alternant is selected, the degree of ambiguity or
-  ##       uncertainty is marked as reduced by the number of alternants not
-  ##       selected.
+  ## selects one or more alternants; if one alternant is selected, the ambiguity or uncertainty is marked as resolved. If more than one alternant is selected, the degree of ambiguity or uncertainty is marked as reduced by the number of alternants not selected.
   attribute select {
     list { tei_data.pointer+ }
   }?
@@ -3957,8 +3684,7 @@ tei_model.rdgPart = notAllowed
 tei_att.witnessed.attributes = tei_att.witnessed.attribute.wit
 tei_att.witnessed.attribute.wit =
   
-  ## (witness or witnesses) contains a list of one or more pointers indicating the witnesses
-  ## which attest to a given reading.
+  ## (witness or witnesses) contains a list of one or more pointers indicating the witnesses which attest to a given reading.
   attribute wit {
     list { tei_data.pointer+ }
   }?
@@ -3975,68 +3701,37 @@ tei_att.textCritical.attribute.type =
   attribute type { tei_data.enumerated }?
 tei_att.textCritical.attribute.cause =
   
-  ## classifies the cause for the variant reading, according to
-  ## any appropriate typology of possible origins.
+  ## classifies the cause for the variant reading, according to any appropriate typology of possible origins.
   ## Sample values include: 1] homeoteleuton; 2] homeoarchy; 3] paleographicConfusion; 4] haplography; 5] dittography; 6] falseEmendation
   attribute cause { tei_data.enumerated }?
 tei_att.textCritical.attribute.varSeq =
   
-  ## (variant sequence) provides a number indicating the position of this reading in a
-  ## sequence, when there is reason to presume a sequence to the variants
-  ## on any one lemma.
+  ## (variant sequence) provides a number indicating the position of this reading in a sequence, when there is reason to presume a sequence to the variants on any one lemma.
   attribute varSeq { tei_data.count }?
 tei_att.textCritical.attribute.hand =
   
-  ## signifies the hand responsible for a particular reading in the
-  ## witness.
+  ## signifies the hand responsible for a particular reading in the witness.
   attribute hand { tei_data.pointer }?
 tei_app =
   
-  ## (apparatus entry) contains one entry in a critical apparatus, with an optional
-  ## lemma and usually one or more reading or a note on the relevant passage. [12.1.1. ]
+  ## (apparatus entry) contains one entry in a critical apparatus, with an optional lemma and usually one or more reading or a note on the relevant passage. [12.1.1. ]
   element app {
     (tei_model.global*,
      (tei_lem, tei_model.global*, tei_model.global*)?,
      ((tei_model.rdgLike, tei_model.global*, tei_model.global*)
-      | (tei_model.global*, tei_model.global*))*)
-    >> sch:pattern [
-         id = "app-constraint-only1lem"
-         "\x{a}" ~
-         "            "
-         sch:rule [
-           context = "tei:app"
-           "\x{a}" ~
-           "               "
-           sch:assert [
-             test =
-               "count( descendant::tei:lem[ generate-id(    current() ) = generate-id(    ancestor::tei:app[1] ) ]) <       2"
-             "\x{a}" ~
-             "Only one <lem> element may appear within a single  apparatus\x{a}" ~
-             "entry, whether it appears outside a <rdgGrp>\x{a}" ~
-             "element or within it."
-           ]
-           "\x{a}" ~
-           "            "
-         ]
-         "\x{a}" ~
-         "         "
-       ],
+      | (tei_model.global*, tei_model.global*))*),
     tei_att.global.attributes,
     
-    ## classifies the variation contained in this element according to
-    ## some convenient typology.
+    ## classifies the variation contained in this element according to some convenient typology.
     attribute type { tei_data.enumerated }?,
     
-    ## identifies the beginning of the lemma in the base text, if
-    ## necessary.
+    ## identifies the beginning of the lemma in the base text.
     attribute from { tei_data.pointer }?,
     
-    ## identifies the endpoint of the lemma in the base text, if
-    ## necessary.
+    ## identifies the endpoint of the lemma in the base text.
     attribute to { tei_data.pointer }?,
     
-    ## (location) indicates the location of the variation, when the
-    ## location-referenced method of apparatus markup is used.
+    ## (location) indicates the location of the variation, when the location-referenced method of apparatus markup is used.
     attribute loc {
       list { tei_data.word+ }
     }?,
@@ -4074,8 +3769,7 @@ tei_rdg =
   }
 tei_listWit =
   
-  ## (witness list) lists definitions for all the witnesses referred to by a critical
-  ##   apparatus, optionally grouped hierarchically. [12.1. ]
+  ## (witness list) lists definitions for all the witnesses referred to by a critical apparatus, optionally grouped hierarchically. [12.1. ]
   element listWit {
     (tei_model.headLike?, (tei_witness | tei_listWit)+),
     tei_att.global.attributes,
@@ -4084,9 +3778,7 @@ tei_listWit =
   }
 tei_witness =
   
-  ## contains either a description of a single witness referred to
-  ## within the critical apparatus, or a list of witnesses which is to be
-  ## referred to by a single sigil. [12.1. ]
+  ## contains either a description of a single witness referred to within the critical apparatus, or a list of witnesses which is to be referred to by a single sigil. [12.1. ]
   element witness {
     tei_macro.limitedContent,
     tei_att.global.attributes,
@@ -4103,7 +3795,7 @@ tei_model.correspDescPart =
   | tei_dateAddressee
 tei_correspDesc =
   
-  ## This is the correspondence element
+  ##  (Correspondence description) A wrapper element for metadata pertaining to correspondence
   element emi:correspDesc {
     tei_model.correspDescPart+,
     

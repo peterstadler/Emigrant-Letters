@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?oxygen RNGSchema="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_allPlus.rng" type="xml"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" 
   xmlns:rng="http://relaxng.org/ns/structure/1.0"
   xmlns:emi="http://cuba.coventry.ac.uk/correspondence_corpora/schema">
@@ -30,9 +30,9 @@
         <schemaSpec ident="emigrantLettersSchema" docLang="en" prefix="tei_" xml:lang="en" start="TEI">
           <moduleRef key="core" include="abbr add addrLine address analytic author bibl biblScope biblStruct cb choice cit corr date del desc editor email emph expan foreign gap gloss graphic head headItem headLabel hi imprint index item l label lb lg list listBibl measure milestone monogr name note num orig p pb postBox postCode ptr pubPlace publisher q quote ref relatedItem resp respStmt rs series sic soCalled street term textLang title unclear"/>
           <moduleRef key="tei"/>
-          <moduleRef key="header" include="authority availability change creation distributor edition editionStmt editorialDecl encodingDesc extent fileDesc funder handNote idno keywords langUsage language licence notesStmt profileDesc projectDesc publicationStmt quotation revisionDesc seriesStmt sourceDesc teiHeader textClass titleStmt"/>
-          <moduleRef key="textstructure" include=" TEI back body byline closer dateline div floatingText opener postscript salute signed text"/>
-          <moduleRef key="namesdates" include="country geogName orgName persName placeName region settlement"/>
+          <moduleRef key="header" include="appInfo application authority availability change creation distributor edition editionStmt editorialDecl encodingDesc extent fileDesc funder handNote idno keywords langUsage language licence notesStmt profileDesc projectDesc publicationStmt quotation revisionDesc seriesStmt sourceDesc teiHeader textClass titleStmt"/>
+          <moduleRef key="textstructure" include="TEI back body byline closer dateline div floatingText opener postscript salute signed text"/>
+          <moduleRef key="namesdates" include="country geogName listPerson orgName persName person placeName region residence settlement sex"/>
           <moduleRef key="figures" include="cell figDesc figure row table"/>
           <moduleRef key="transcr" include="addSpan damage damageSpan delSpan ex facsimile handNotes handShift redo space subst supplied"/>
           <moduleRef key="msdescription" include="acquisition additional altIdentifier collection handDesc history incipit institution msDesc msIdentifier msPart origin physDesc provenance repository"/>
@@ -68,9 +68,11 @@
           
           <elementSpec ident="correspDesc" mode="add" ns="http://cuba.coventry.ac.uk/correspondence_corpora/schema"
             module="correspondence">
-            <desc>This is the correspondence element</desc>
+            <gloss>Correspondence description</gloss>
+            <desc>A wrapper element for metadata pertaining to correspondence</desc>
             <classes>
               <memberOf key="model.sourceDescPart"/>
+              <memberOf key="model.divTopPart"/>
             </classes>
             <content>
               <rng:oneOrMore xmlns:rng="http://relaxng.org/ns/structure/1.0">
