@@ -10,12 +10,11 @@
     
     <xsl:output method="xml" indent="yes"/>
     
-    <!--<xsl:include href="http://www.xsltfunctions.com/xsl/functx-1.0-nodoc-2007-01.xsl"/>-->
-    <xsl:include href="file:///Users/pstadler/Documents/git/exist/webapp/WEB-INF/data/expathrepo/functx-1.0/functx/functx.xsl"/>
+    <xsl:include href="http://www.xsltfunctions.com/xsl/functx-1.0-nodoc-2007-01.xsl"/>
     
     <xsl:template match="/">
         <xsl:processing-instruction name="xml-model">
-            <xsl:text>href="/Users/pstadler/Documents/git/correspDesc/proposal.rng " type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:text>
+            <xsl:text>href="https://raw2.github.com/TEI-Correspondence-SIG/correspDesc/master/proposal.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"</xsl:text>
         </xsl:processing-instruction>
         <xsl:element name="TEI">
             <xsl:call-template name="create-teiHeader"/>
