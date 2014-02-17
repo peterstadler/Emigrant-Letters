@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw2.github.com/TEI-Correspondence-SIG/correspDesc/master/proposal.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Immigrant Letter Collection of the University of Minnesota. Metadata in TEI format according to the current proposal of the Correspondence SIG</title>
+            <respStmt>
+               <resp>Extraction</resp>
+               <name>Luis Espinosa Anke</name>
+            </respStmt>
+            <respStmt>
+               <resp>Transformation to TEI</resp>
+               <name>Peter Stadler</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <p>Available under dual license CC-BY and BSD-2</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born digital. Created via XSLT from a spreadsheet</p>
+         </sourceDesc>
+      </fileDesc>
+      <revisionDesc status="candidate">
+         <change when="2014-02-17" who="Peter" status="candidate">Initial creation</change>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <listBibl>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472436"
+                            corresp="http://umedia.lib.umn.edu/node/472436">
+               <ct:sender>Grebenstchikoff, George</ct:sender>
+               <ct:addressee>Nicholas Roerich</ct:addressee>
+               <ct:placeSender>New York City, New York</ct:placeSender>
+               <ct:placeAddressee>Kullu, India</ct:placeAddressee>
+               <ct:dateSender when="1924-04-30"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710673"
+                            corresp="http://umedia.lib.umn.edu/node/710673">
+               <ct:sender>Budzka, Eduard</ct:sender>
+               <ct:addressee>Klara and Vaclau Panucevich</ct:addressee>
+               <ct:placeSender>Wentorf, Germany</ct:placeSender>
+               <ct:placeAddressee>Chicago, Illinois</ct:placeAddressee>
+               <ct:dateSender when="1950-06-06"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88790"
+                            corresp="http://umedia.lib.umn.edu/node/88790">
+               <ct:sender>Paikens, Helena</ct:sender>
+               <ct:addressee>her mother-in-law, Anna Paikens</ct:addressee>
+               <ct:placeSender>Minneapolis, Minnesota</ct:placeSender>
+               <ct:placeAddressee>Lencini, Latvia</ct:placeAddressee>
+               <ct:dateSender when="1957-09-10"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88811"
+                            corresp="http://umedia.lib.umn.edu/node/88811">
+               <ct:sender>Neprytsky-Hranovsky, Serhii</ct:sender>
+               <ct:addressee>his brother Alexander Granovsky</ct:addressee>
+               <ct:placeSender>Berezhtsi, Ukraine</ct:placeSender>
+               <ct:placeAddressee>Madison, Wisconsin</ct:placeAddressee>
+               <ct:dateSender when="1929-01-19"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88833"
+                            corresp="http://umedia.lib.umn.edu/node/88833">
+               <ct:sender>Aalto, Bert</ct:sender>
+               <ct:addressee>his friend Hilma Aerila</ct:addressee>
+               <ct:placeSender>Big Falls, Minnesota</ct:placeSender>
+               <ct:placeAddressee>Laitila, Finland</ct:placeAddressee>
+               <ct:dateSender when="1912-01-12"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88831"
+                            corresp="http://umedia.lib.umn.edu/node/88831">
+               <ct:sender>Aalto, Bert</ct:sender>
+               <ct:addressee>his friend Hilma Aerila</ct:addressee>
+               <ct:placeSender>Big Falls, Minnesota</ct:placeSender>
+               <ct:placeAddressee>Laitila, Finland</ct:placeAddressee>
+               <ct:dateSender when="1911-08-26"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472442"
+                            corresp="http://umedia.lib.umn.edu/node/472442">
+               <ct:sender>Roerich, Nicholas</ct:sender>
+               <ct:addressee>George and Tatiana Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Kullu, India</ct:placeSender>
+               <ct:placeAddressee>Southbury, Connecticut</ct:placeAddressee>
+               <ct:dateSender when="1936-05-16"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88793"
+                            corresp="http://umedia.lib.umn.edu/node/88793">
+               <ct:sender>Fazio, Lucia</ct:sender>
+               <ct:addressee>Alessando Sisca (Riccardo Cordiferro)</ct:addressee>
+               <ct:placeSender>Hoboken, New Jersey</ct:placeSender>
+               <ct:placeAddressee>New York, New York</ct:placeAddressee>
+               <ct:dateSender when="1898-12-11"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553855"
+                            corresp="http://umedia.lib.umn.edu/node/553855">
+               <ct:sender>Kovač , T. Paul</ct:sender>
+               <ct:addressee>his mother Zuzana Kovac</ct:addressee>
+               <ct:placeSender>Hawleyville, Connecticut</ct:placeSender>
+               <ct:placeAddressee>Hrádok, Slovakia</ct:placeAddressee>
+               <ct:dateSender when="1927-07-05"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472455"
+                            corresp="http://umedia.lib.umn.edu/node/472455">
+               <ct:sender>Douline, Nikolay</ct:sender>
+               <ct:addressee>George Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Southbury, Connecticut</ct:placeSender>
+               <ct:placeAddressee>Lakeland, Florida</ct:placeAddressee>
+               <ct:dateSender when="1949-11-08"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710636"
+                            corresp="http://umedia.lib.umn.edu/node/472455">
+               <ct:sender>Arthur Sch.</ct:sender>
+               <ct:addressee>Emilie Wehle</ct:addressee>
+               <ct:placeSender>probably Buenos Aires</ct:placeSender>
+               <ct:placeAddressee>Vienna, Austria</ct:placeAddressee>
+               <ct:dateSender when="1914-08-14"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="552682"
+                            corresp="http://umedia.lib.umn.edu/node/552682">
+               <ct:sender>Petris, Antonietta</ct:sender>
+               <ct:addressee>Loris Palma</ct:addressee>
+               <ct:placeSender>Montreal, Canada</ct:placeSender>
+               <ct:placeAddressee>Venice, Italy</ct:placeAddressee>
+               <ct:dateSender when="1948-09-30"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88830"
+                            corresp="http://umedia.lib.umn.edu/node/88830">
+               <ct:sender>Aalto, August</ct:sender>
+               <ct:addressee>his friend Hilma Aerila</ct:addressee>
+               <ct:placeSender>Humboldt, California</ct:placeSender>
+               <ct:placeAddressee>Laitila, Finland</ct:placeAddressee>
+               <ct:dateSender when="1907-03-30"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553842"
+                            corresp="http://umedia.lib.umn.edu/node/553842">
+               <ct:sender>Kostlan, Jozef</ct:sender>
+               <ct:addressee>relatives</ct:addressee>
+               <ct:placeSender>Linn County, Iowa</ct:placeSender>
+               <ct:placeAddressee>Bohemia</ct:placeAddressee>
+               <ct:dateSender when="1865-03-09"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88800"
+                            corresp="http://umedia.lib.umn.edu/node/88800">
+               <ct:sender>Delfino, Diego</ct:sender>
+               <ct:addressee>his daughter</ct:addressee>
+               <ct:placeSender>Bellaire, Ohio</ct:placeSender>
+               <ct:placeAddressee>Reggio Calabria, Italy</ct:placeAddressee>
+               <ct:dateSender when="1925-03-26"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88809"
+                            corresp="http://umedia.lib.umn.edu/node/88809">
+               <ct:sender>Neprytsky-Hranovsky, Serhii</ct:sender>
+               <ct:addressee>his brother Alexander Granovsky</ct:addressee>
+               <ct:placeSender>Berezhtsi, Ukraine</ct:placeSender>
+               <ct:placeAddressee>Fort Collins, Colorado</ct:placeAddressee>
+               <ct:dateSender when="1915-11-25"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88808"
+                            corresp="http://umedia.lib.umn.edu/node/88808">
+               <ct:sender>Neprytsky-Hranovsky, Serhii</ct:sender>
+               <ct:addressee>his brother Alexander Granovsky</ct:addressee>
+               <ct:placeSender>Berezhtsi, Ukraine</ct:placeSender>
+               <ct:placeAddressee>Chicago</ct:placeAddressee>
+               <ct:dateSender when="1914-05-25"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88797"
+                            corresp="http://umedia.lib.umn.edu/node/88797">
+               <ct:sender>Fazio, Lucia</ct:sender>
+               <ct:addressee>Alessando Sisca (Riccardo Cordiferro)</ct:addressee>
+               <ct:placeSender>New York, New York</ct:placeSender>
+               <ct:placeAddressee>Boston, Massachusetts</ct:placeAddressee>
+               <ct:dateSender when="1900-06-22"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710634"
+                            corresp="http://umedia.lib.umn.edu/node/710634">
+               <ct:sender>Oskar and Lola Sch.</ct:sender>
+               <ct:addressee>Emilie Wehle</ct:addressee>
+               <ct:placeSender>New York</ct:placeSender>
+               <ct:placeAddressee>Vienna, Austria</ct:placeAddressee>
+               <ct:dateSender when="1904-11-25"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553849"
+                            corresp="http://umedia.lib.umn.edu/node/553849">
+               <ct:sender>Kovač , T. Paul</ct:sender>
+               <ct:addressee>his mother Zuzana Kovac</ct:addressee>
+               <ct:placeSender>Bridgeport, Connecticut</ct:placeSender>
+               <ct:placeAddressee>Hrádok, Slovakia</ct:placeAddressee>
+               <ct:dateSender when="1919-09-06"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88803"
+                            corresp="http://umedia.lib.umn.edu/node/88803">
+               <ct:sender>Delfino, Diego</ct:sender>
+               <ct:addressee>his daughter</ct:addressee>
+               <ct:placeSender>Bellaire, Ohio</ct:placeSender>
+               <ct:placeAddressee>Reggio Calabria, Italy</ct:placeAddressee>
+               <ct:dateSender when="1925-06-26"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88842"
+                            corresp="http://umedia.lib.umn.edu/node/88842">
+               <ct:sender>Mrs. Vukasinovich</ct:sender>
+               <ct:addressee>Mike Vukasinovich</ct:addressee>
+               <ct:placeSender>Plavnice, Croatia</ct:placeSender>
+               <ct:placeAddressee>St. Paul, Minnesota</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>No Date</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88802"
+                            corresp="http://umedia.lib.umn.edu/node/88802">
+               <ct:sender>Delfino, Diego</ct:sender>
+               <ct:addressee>his daughter</ct:addressee>
+               <ct:placeSender>Bellaire, Ohio</ct:placeSender>
+               <ct:placeAddressee>Reggio Calabria, Italy</ct:placeAddressee>
+               <ct:dateSender when="1925-04-23"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472438"
+                            corresp="http://umedia.lib.umn.edu/node/472438">
+               <ct:sender>Grebenstchikoff, George</ct:sender>
+               <ct:addressee>Nicholas Roerich of Naggar</ct:addressee>
+               <ct:placeSender>New York City, New York</ct:placeSender>
+               <ct:placeAddressee>Kullu, India</ct:placeAddressee>
+               <ct:dateSender when="1924-07-24"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88826"
+                            corresp="http://umedia.lib.umn.edu/node/88826">
+               <ct:sender>Fazio, Lucia</ct:sender>
+               <ct:addressee>Alessandro Sisca (Riccardo Cordiferro)</ct:addressee>
+               <ct:placeSender>Hoboken, New Jersey</ct:placeSender>
+               <ct:placeAddressee>New York, New York</ct:placeAddressee>
+               <ct:dateSender when="1900-10-06"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472454"
+                            corresp="http://umedia.lib.umn.edu/node/472454">
+               <ct:sender>Grebenstchikoff, George</ct:sender>
+               <ct:addressee>Andrey Shoopinksy</ct:addressee>
+               <ct:placeSender>Lakeland, Florida</ct:placeSender>
+               <ct:placeAddressee>Southbury, Connecticut</ct:placeAddressee>
+               <ct:dateSender when="1949-10-03"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472453"
+                            corresp="http://umedia.lib.umn.edu/node/472453">
+               <ct:sender>Roerich, Nicholas</ct:sender>
+               <ct:addressee>George and Tatiana Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Kullu, India</ct:placeSender>
+               <ct:placeAddressee>Southbury, Connecticut</ct:placeAddressee>
+               <ct:dateSender when="1937-11-17"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88786"
+                            corresp="http://umedia.lib.umn.edu/node/88786">
+               <ct:sender>Paikens, Anna</ct:sender>
+               <ct:addressee>her son Edward Paikens</ct:addressee>
+               <ct:placeSender>Lencini, Latvia</ct:placeSender>
+               <ct:placeAddressee>Minneapolis, Minnesota</ct:placeAddressee>
+               <ct:dateSender when="1956-11-25"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710668"
+                            corresp="http://umedia.lib.umn.edu/node/88786">
+               <ct:sender>Budzka, Eduard</ct:sender>
+               <ct:addressee>Klara and Vaclau Panucevich</ct:addressee>
+               <ct:placeSender>Munich, Germany</ct:placeSender>
+               <ct:placeAddressee>UNK</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>January 1946</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553848"
+                            corresp="http://umedia.lib.umn.edu/node/553848">
+               <ct:sender>Kovač , T. Paul</ct:sender>
+               <ct:addressee>Zuzana Kovac</ct:addressee>
+               <ct:placeSender>UNK</ct:placeSender>
+               <ct:placeAddressee>Hrádok, Slovakia</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>undated (around 1917)</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553854"
+                            corresp="http://umedia.lib.umn.edu/node/553854">
+               <ct:sender>Kovač , Veronika</ct:sender>
+               <ct:addressee>Paul's mother Zuzanna Kovac</ct:addressee>
+               <ct:placeSender>UNK</ct:placeSender>
+               <ct:placeAddressee>Hrádok, Slovakia</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>undated, probably first half of 1927</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88813"
+                            corresp="http://umedia.lib.umn.edu/node/88813">
+               <ct:sender>Neprytsky-Hranovsky, Serhii</ct:sender>
+               <ct:addressee>his brother Alexander Granovsky</ct:addressee>
+               <ct:placeSender>Berezhtsi, Ukraine</ct:placeSender>
+               <ct:placeAddressee>Saint Paul, Minnesota</ct:placeAddressee>
+               <ct:dateSender when="1939-01-12"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88792"
+                            corresp="http://umedia.lib.umn.edu/node/88792">
+               <ct:sender>Paikens, Edward</ct:sender>
+               <ct:addressee>his mother, Anna Paikens</ct:addressee>
+               <ct:placeSender>Minneapolis, Minnesota</ct:placeSender>
+               <ct:placeAddressee>Lencini, Latvia</ct:placeAddressee>
+               <ct:dateSender when="1957-10-07"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88827"
+                            corresp="http://umedia.lib.umn.edu/node/88827">
+               <ct:sender>Fazio, Lucia</ct:sender>
+               <ct:addressee>Alessandro Sisca (Riccardo Cordiferro)</ct:addressee>
+               <ct:placeSender>New York, New York</ct:placeSender>
+               <ct:placeAddressee>Boston, Massachusetts</ct:placeAddressee>
+               <ct:dateSender when="1900-10-08"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472456"
+                            corresp="http://umedia.lib.umn.edu/node/472456">
+               <ct:sender>Grebenstchikoff, George</ct:sender>
+               <ct:addressee>Nikolay Douline</ct:addressee>
+               <ct:placeSender>Lakeland, Florida</ct:placeSender>
+               <ct:placeAddressee>Southbury, Connecticut</ct:placeAddressee>
+               <ct:dateSender when="1949-11-15"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553861"
+                            corresp="http://umedia.lib.umn.edu/node/553861">
+               <ct:sender>Nemanich, Janez</ct:sender>
+               <ct:addressee>his brother Anton Nemanich</ct:addressee>
+               <ct:placeSender>Lokvica, Slovenia</ct:placeSender>
+               <ct:placeAddressee>Joliet, Illinois</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>no year available, May 10, probably 1922</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88794"
+                            corresp="http://umedia.lib.umn.edu/node/88794">
+               <ct:sender>Cordiferro, Riccardo</ct:sender>
+               <ct:addressee>Alessando Sisca (Riccardo Cordiferro)</ct:addressee>
+               <ct:placeSender>UNK</ct:placeSender>
+               <ct:placeAddressee>New York, New York</ct:placeAddressee>
+               <ct:dateSender when="1899-02-18"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553864"
+                            corresp="http://umedia.lib.umn.edu/node/553864">
+               <ct:sender>Nemanich, Janez</ct:sender>
+               <ct:addressee>his brother Anton Nemanich</ct:addressee>
+               <ct:placeSender>Lokvica, Slovenia</ct:placeSender>
+               <ct:placeAddressee>Joliet, Illinois</ct:placeAddressee>
+               <ct:dateSender when="1924-06-22"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88840"
+                            corresp="http://umedia.lib.umn.edu/node/88840">
+               <ct:sender>Mrs. Vukasinovich</ct:sender>
+               <ct:addressee>Mike Vukasinovich</ct:addressee>
+               <ct:placeSender>Plavnice, Croatia</ct:placeSender>
+               <ct:placeAddressee>St. Paul, Minnesota</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>No Date</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="552681"
+                            corresp="http://umedia.lib.umn.edu/node/552681">
+               <ct:sender>Petris, Antonietta</ct:sender>
+               <ct:addressee>Loris Palma</ct:addressee>
+               <ct:placeSender>Montreal, Canada</ct:placeSender>
+               <ct:placeAddressee>Venice, Italy</ct:placeAddressee>
+               <ct:dateSender when="1948-09-26"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88796"
+                            corresp="http://umedia.lib.umn.edu/node/88796">
+               <ct:sender>Fazio, Lucia</ct:sender>
+               <ct:addressee>Alessando Sisca (Riccardo Cordiferro)</ct:addressee>
+               <ct:placeSender>Hoboken, New Jersey</ct:placeSender>
+               <ct:placeAddressee>New York, New York</ct:placeAddressee>
+               <ct:dateSender when="1899-06-22"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553862"
+                            corresp="http://umedia.lib.umn.edu/node/553862">
+               <ct:sender>Nemanich, Janez</ct:sender>
+               <ct:addressee>his brother Anton Nemanich</ct:addressee>
+               <ct:placeSender>Lokvica, Slovenia</ct:placeSender>
+               <ct:placeAddressee>Joliet, Illinois</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>October 1922</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88795"
+                            corresp="http://umedia.lib.umn.edu/node/88795">
+               <ct:sender>Fazio, Lucia</ct:sender>
+               <ct:addressee>Alessando Sisca (Riccardo Cordiferro)</ct:addressee>
+               <ct:placeSender>Hoboken, New Jersey</ct:placeSender>
+               <ct:placeAddressee>New York, New York</ct:placeAddressee>
+               <ct:dateSender when="1899-03-07"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="469091"
+                            corresp="http://umedia.lib.umn.edu/node/469091">
+               <ct:sender>Grebenstchikoff, Elena</ct:sender>
+               <ct:addressee>her son George Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Kolyvan, Russia</ct:placeSender>
+               <ct:placeAddressee>Kiev, Russia (present-day Ukraine)</ct:placeAddressee>
+               <ct:dateSender when="1917-08-04"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88806"
+                            corresp="http://umedia.lib.umn.edu/node/88806">
+               <ct:sender>Delfino, Diego</ct:sender>
+               <ct:addressee>his daughter</ct:addressee>
+               <ct:placeSender>Bellaire, Ohio</ct:placeSender>
+               <ct:placeAddressee>Reggio Calabria, Italy</ct:placeAddressee>
+               <ct:dateSender when="1926-10-06"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710674"
+                            corresp="http://umedia.lib.umn.edu/node/710674">
+               <ct:sender>Budzka, Eduard</ct:sender>
+               <ct:addressee>Klara and Vaclau Panucevich</ct:addressee>
+               <ct:placeSender>Wentorf, Germany</ct:placeSender>
+               <ct:placeAddressee>Chicago, Illinois</ct:placeAddressee>
+               <ct:dateSender when="1950-07-28"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88832"
+                            corresp="http://umedia.lib.umn.edu/node/88832">
+               <ct:sender>Aalto, Bert</ct:sender>
+               <ct:addressee>his friend Hilma Aerila</ct:addressee>
+               <ct:placeSender>Big Falls, Minnesota</ct:placeSender>
+               <ct:placeAddressee>Laitila, Finland</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>Novermber 14, 1911</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553863"
+                            corresp="http://umedia.lib.umn.edu/node/553863">
+               <ct:sender>Nemanich, Janez</ct:sender>
+               <ct:addressee>his brother Anton Nemanich</ct:addressee>
+               <ct:placeSender>Lokvica, Slovenia</ct:placeSender>
+               <ct:placeAddressee>Joliet, Illinois</ct:placeAddressee>
+               <ct:dateSender when="1923-06-16"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710635"
+                            corresp="http://umedia.lib.umn.edu/node/710635">
+               <ct:sender>Walter Sch.</ct:sender>
+               <ct:addressee>Emilie Wehle</ct:addressee>
+               <ct:placeSender>Dar es Salaam in "Deutsch-Ostafrika" (German colony until 1918), today Tanzania</ct:placeSender>
+               <ct:placeAddressee>Vienna, Austria</ct:placeAddressee>
+               <ct:dateSender when="1907-06-09"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88810"
+                            corresp="http://umedia.lib.umn.edu/node/88810">
+               <ct:sender>Neprytska-Hranovska, Lida</ct:sender>
+               <ct:addressee>his brother Alexander Granovsky</ct:addressee>
+               <ct:placeSender>Berezhtsi, Ukraine</ct:placeSender>
+               <ct:placeAddressee>Madison, Wisconsin</ct:placeAddressee>
+               <ct:dateSender when="1922-12-03"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710669"
+                            corresp="http://umedia.lib.umn.edu/node/710669">
+               <ct:sender>Panucevich, Klara</ct:sender>
+               <ct:addressee>Eduard Budzka</ct:addressee>
+               <ct:placeSender>aboard the USS "General BAllow"</ct:placeSender>
+               <ct:placeAddressee>near Hamburg, Germany</ct:placeAddressee>
+               <ct:dateSender when="1950-05-04"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472433"
+                            corresp="http://umedia.lib.umn.edu/node/472433">
+               <ct:sender>Grebenstchikoff, Ivan</ct:sender>
+               <ct:addressee>brother George Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Semipalatinsk (present-day Semey), Russia (present-day Kazakhstan)</ct:placeSender>
+               <ct:placeAddressee>Southbury, Connecticut</ct:placeAddressee>
+               <ct:dateSender when="1931-12-08"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88839"
+                            corresp="http://umedia.lib.umn.edu/node/88839">
+               <ct:sender>Mrs. Vukasinovich</ct:sender>
+               <ct:addressee>Mike Vukasinovich</ct:addressee>
+               <ct:placeSender>Plavnice, Croatia</ct:placeSender>
+               <ct:placeAddressee>St. Paul, Minnesota</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>December 1, 19??</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="469095"
+                            corresp="http://umedia.lib.umn.edu/node/469095">
+               <ct:sender>Grebenstchikoff, Anatoly</ct:sender>
+               <ct:addressee>his father George Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Kolyvan, Russia</ct:placeSender>
+               <ct:placeAddressee>Kiev, Russia (present-day Ukraine)</ct:placeAddressee>
+               <ct:dateSender when="1917-08-14"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="469097"
+                            corresp="http://umedia.lib.umn.edu/node/469097">
+               <ct:sender>Grebenstchikoff, George</ct:sender>
+               <ct:addressee>son Anatoly Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Southbury, Connecticut</ct:placeSender>
+               <ct:placeAddressee>Leningrad (presend-day Saint Petersburg), Russia</ct:placeAddressee>
+               <ct:dateSender when="1931-04-06"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88805"
+                            corresp="http://umedia.lib.umn.edu/node/88805">
+               <ct:sender>Delfino, Diego</ct:sender>
+               <ct:addressee>his daughter</ct:addressee>
+               <ct:placeSender>Follansbee, West Virginia</ct:placeSender>
+               <ct:placeAddressee>Reggio Calabria, Italy</ct:placeAddressee>
+               <ct:dateSender when="1926-01-10"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88835"
+                            corresp="http://umedia.lib.umn.edu/node/88835">
+               <ct:sender>Unknown</ct:sender>
+               <ct:addressee>a friend named Olga</ct:addressee>
+               <ct:placeSender>New York</ct:placeSender>
+               <ct:placeAddressee>Finland</ct:placeAddressee>
+               <ct:dateSender when="1959-01-23"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88828"
+                            corresp="http://umedia.lib.umn.edu/node/88828">
+               <ct:sender>Sisca, Alessandro</ct:sender>
+               <ct:addressee>Luzia Fazio</ct:addressee>
+               <ct:placeSender>Boston, Massachusetts</ct:placeSender>
+               <ct:placeAddressee>New York, New York</ct:placeAddressee>
+               <ct:dateSender when="1900-10-18"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88807"
+                            corresp="http://umedia.lib.umn.edu/node/88807">
+               <ct:sender>Neprytsky-Hranovsky, Serhii</ct:sender>
+               <ct:addressee>his brother Alexander Granovsky</ct:addressee>
+               <ct:placeSender>Berezhtsi, Ukraine</ct:placeSender>
+               <ct:placeAddressee>Chicago</ct:placeAddressee>
+               <ct:dateSender when="1913-07-22"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88788"
+                            corresp="http://umedia.lib.umn.edu/node/88788">
+               <ct:sender>Paikens, Anna</ct:sender>
+               <ct:addressee>her son Edward Paikens</ct:addressee>
+               <ct:placeSender>Lencini, Latvia</ct:placeSender>
+               <ct:placeAddressee>Minneapolis, Minnesota</ct:placeAddressee>
+               <ct:dateSender when="1957-02-24"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553852"
+                            corresp="http://umedia.lib.umn.edu/node/553852">
+               <ct:sender>Kovač , T. Paul</ct:sender>
+               <ct:addressee>his mother Zuzana Kovac</ct:addressee>
+               <ct:placeSender>Bridgeport, Connecticut</ct:placeSender>
+               <ct:placeAddressee>Hradok, Slovakia</ct:placeAddressee>
+               <ct:dateSender when="1922-07-26"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553853"
+                            corresp="http://umedia.lib.umn.edu/node/553853">
+               <ct:sender>Kovač , Veronika</ct:sender>
+               <ct:addressee>Paul's mother Zuzana Kovac</ct:addressee>
+               <ct:placeSender>Hudson, New York</ct:placeSender>
+               <ct:placeAddressee>Hrádok, Slovakia</ct:placeAddressee>
+               <ct:dateSender when="1926-09-09"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553860"
+                            corresp="http://umedia.lib.umn.edu/node/553860">
+               <ct:sender>Nemanich, Janez</ct:sender>
+               <ct:addressee>his brother Anton Nemanich</ct:addressee>
+               <ct:placeSender>Lokvica, Slovenia</ct:placeSender>
+               <ct:placeAddressee>Joliet, Illinois</ct:placeAddressee>
+               <ct:dateSender when="1921-07-10"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="469096"
+                            corresp="http://umedia.lib.umn.edu/node/469096">
+               <ct:sender>Grebenstchikoff, Alexey</ct:sender>
+               <ct:addressee>brother George Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Semipalatinsk, Russia (present-day Kazakhstan)</ct:placeSender>
+               <ct:placeAddressee>Southbury, Connecticut</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>Summer 1927</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88787"
+                            corresp="http://umedia.lib.umn.edu/node/88787">
+               <ct:sender>Paikens, Anna</ct:sender>
+               <ct:addressee>her son Edward Paikens</ct:addressee>
+               <ct:placeSender>Lencini, Latvia</ct:placeSender>
+               <ct:placeAddressee>Minneapolis, Minnesota</ct:placeAddressee>
+               <ct:dateSender when="1957-02-03"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553841"
+                            corresp="http://umedia.lib.umn.edu/node/553841">
+               <ct:sender>Kostlan, Jozef</ct:sender>
+               <ct:addressee>his relatives</ct:addressee>
+               <ct:placeSender>Linn County, Iowa</ct:placeSender>
+               <ct:placeAddressee>Bohemia</ct:placeAddressee>
+               <ct:dateSender when="1863-12-26"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="553850"
+                            corresp="http://umedia.lib.umn.edu/node/553850">
+               <ct:sender>Kovač , T. Paul</ct:sender>
+               <ct:addressee>Zuzana Kovac</ct:addressee>
+               <ct:placeSender>Bridgeport, Connecticut</ct:placeSender>
+               <ct:placeAddressee>Hrádok, Slovakia</ct:placeAddressee>
+               <ct:dateSender when="1920-12-12"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710670"
+                            corresp="http://umedia.lib.umn.edu/node/553850">
+               <ct:sender>Panucevich, Vaclau</ct:sender>
+               <ct:addressee>Eduard Budzka</ct:addressee>
+               <ct:placeSender>aboard the USS "General Ballow"</ct:placeSender>
+               <ct:placeAddressee>near Hamburg, Germany</ct:placeAddressee>
+               <ct:dateSender when="1950-05-05"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88791"
+                            corresp="http://umedia.lib.umn.edu/node/88791">
+               <ct:sender>Paikens, Anna</ct:sender>
+               <ct:addressee>her daughter-in-law, Helena Paikens</ct:addressee>
+               <ct:placeSender>Lencini, Latvia</ct:placeSender>
+               <ct:placeAddressee>Minneapolis, Minnesota</ct:placeAddressee>
+               <ct:dateSender when="1957-09-27"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="472441"
+                            corresp="http://umedia.lib.umn.edu/node/472441">
+               <ct:sender>Roerich, Nicholas</ct:sender>
+               <ct:addressee>George and Tatiana Grebenstchikoff</ct:addressee>
+               <ct:placeSender>Kullu, India</ct:placeSender>
+               <ct:placeAddressee>Southbury, Connecticut</ct:placeAddressee>
+               <ct:dateSender when="1933-09-12"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88834"
+                            corresp="http://umedia.lib.umn.edu/node/88834">
+               <ct:sender>Saimi</ct:sender>
+               <ct:addressee>her sister</ct:addressee>
+               <ct:placeSender>Painesville, Ohio</ct:placeSender>
+               <ct:placeAddressee>Etelä-Pohjanmaa areas of Finland</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>April 4th, 1938</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710671"
+                            corresp="http://umedia.lib.umn.edu/node/710671">
+               <ct:sender>Budzka, Eduard</ct:sender>
+               <ct:addressee>Klara and Vaclau Panucevich</ct:addressee>
+               <ct:placeSender>Wentorf, Germnay</ct:placeSender>
+               <ct:placeAddressee>United States</ct:placeAddressee>
+               <ct:dateSender when="1950-05-27"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88841"
+                            corresp="http://umedia.lib.umn.edu/node/88841">
+               <ct:sender>Mrs. Vukasinovich</ct:sender>
+               <ct:addressee>Mike Vukasinovich</ct:addressee>
+               <ct:placeSender>Plavnice, Croatia</ct:placeSender>
+               <ct:placeAddressee>St. Paul</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>No Date</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88801"
+                            corresp="http://umedia.lib.umn.edu/node/88801">
+               <ct:sender>Delfino, Diego</ct:sender>
+               <ct:addressee>his daughter</ct:addressee>
+               <ct:placeSender>Bellaire, Ohio</ct:placeSender>
+               <ct:placeAddressee>Reggio Calabria, Italy</ct:placeAddressee>
+               <ct:dateSender when="1925-04-08"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710672"
+                            corresp="http://umedia.lib.umn.edu/node/710672">
+               <ct:sender>Budzka, Eduard</ct:sender>
+               <ct:addressee>Vaclau and Klara Panucevich</ct:addressee>
+               <ct:placeSender>Wentorf, Germany</ct:placeSender>
+               <ct:placeAddressee>United States</ct:placeAddressee>
+               <ct:dateSender>
+                  <date>May 30-31, 1950</date>
+               </ct:dateSender>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88804"
+                            corresp="http://umedia.lib.umn.edu/node/88804">
+               <ct:sender>Delfino, Diego</ct:sender>
+               <ct:addressee>his daughter</ct:addressee>
+               <ct:placeSender>Bellaire, Ohio</ct:placeSender>
+               <ct:placeAddressee>Reggio Calabria, Italy</ct:placeAddressee>
+               <ct:dateSender when="1925-11-19"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710638"
+                            corresp="http://umedia.lib.umn.edu/node/710638">
+               <ct:sender>Malvine R.</ct:sender>
+               <ct:addressee>Emilie Wehle</ct:addressee>
+               <ct:placeSender>Champaign, Illinois</ct:placeSender>
+               <ct:placeAddressee>Vienna, Austria</ct:placeAddressee>
+               <ct:dateSender when="1946-12-23"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88829"
+                            corresp="http://umedia.lib.umn.edu/node/88829">
+               <ct:sender>Aalto, August</ct:sender>
+               <ct:addressee>his friend Hilma Aerila</ct:addressee>
+               <ct:placeSender>Humboldt, California</ct:placeSender>
+               <ct:placeAddressee>Laitila, Finland</ct:placeAddressee>
+               <ct:dateSender when="1906-04-27"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="552683"
+                            corresp="http://umedia.lib.umn.edu/node/552683">
+               <ct:sender>Petris, Antonietta</ct:sender>
+               <ct:addressee>Loris Palma</ct:addressee>
+               <ct:placeSender>Montreal, Canada</ct:placeSender>
+               <ct:placeAddressee>Venice, Italy</ct:placeAddressee>
+               <ct:dateSender when="1948-10-05"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88812"
+                            corresp="http://umedia.lib.umn.edu/node/88812">
+               <ct:sender>Neprytsky-Hranovsky, Serhii</ct:sender>
+               <ct:addressee>his brother Alexander Granovsky</ct:addressee>
+               <ct:placeSender>Berezhtsi, Ukraine</ct:placeSender>
+               <ct:placeAddressee>Saint Paul, Minnesota</ct:placeAddressee>
+               <ct:dateSender when="1931-03-01"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="552680"
+                            corresp="http://umedia.lib.umn.edu/node/552680">
+               <ct:sender>Palma, Loris</ct:sender>
+               <ct:addressee>Antonietta Petris</ct:addressee>
+               <ct:placeSender>Venice, Italy</ct:placeSender>
+               <ct:placeAddressee>Montreal, Canada</ct:placeAddressee>
+               <ct:dateSender when="1948-09-23"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710637"
+                            corresp="http://umedia.lib.umn.edu/node/710637">
+               <ct:sender>Malvine R.</ct:sender>
+               <ct:addressee>Emilie Wehle</ct:addressee>
+               <ct:placeSender>Champaign, Illinois</ct:placeSender>
+               <ct:placeAddressee>Vienna, Austria</ct:placeAddressee>
+               <ct:dateSender when="1946-11-28"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="552679"
+                            corresp="http://umedia.lib.umn.edu/node/552679">
+               <ct:sender>Ramirez, Bruno</ct:sender>
+               <ct:addressee>Loris Palma</ct:addressee>
+               <ct:placeSender>Canada</ct:placeSender>
+               <ct:placeAddressee>Venice, Italy</ct:placeAddressee>
+               <ct:dateSender when="2011-09-20"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="88789"
+                            corresp="http://umedia.lib.umn.edu/node/88789">
+               <ct:sender>Paikens, Anna</ct:sender>
+               <ct:addressee>her son Edward Paikens</ct:addressee>
+               <ct:placeSender>Lencini, Latvia</ct:placeSender>
+               <ct:placeAddressee>Minneapolis, Minnesota</ct:placeAddressee>
+               <ct:dateSender when="1957-04-14"/>
+            </ct:correspDesc>
+            <ct:correspDesc xmlns:ct="http://wiki.tei-c.org/index.php/SIG:Correspondence/task-force-correspDesc"
+                            n="710639"
+                            corresp="http://umedia.lib.umn.edu/node/88789">
+               <ct:sender>Arthur and Lisa Sch.</ct:sender>
+               <ct:addressee>Emilie Wehle</ct:addressee>
+               <ct:placeSender>probably Buenos Aires</ct:placeSender>
+               <ct:placeAddressee>Vienna, Austria</ct:placeAddressee>
+               <ct:dateSender when="1953-07-26"/>
+            </ct:correspDesc>
+         </listBibl>
+      </body>
+   </text>
+</TEI>
